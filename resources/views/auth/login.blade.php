@@ -8,7 +8,7 @@
             {{ session('status') }}
         </div>
     @endif
-    
+
     <form method="POST"    action="{{ route('login') }}">
         @csrf
 
@@ -23,9 +23,9 @@
                         <h1 class="text-xl font-semibold">Welcome back</h1>
                         <small class="text-gray-400">Welcome back! Please enter your details</small>
 
-                        <x-validation-errors class="mb-4" /> 
+                        <x-validation-errors class="mb-4" />
 
-                        
+
                         <div class="mt-4">
                             <x-label for="email" value="{{ __('Email') }}" />
                             <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" autofocus autocomplete="username" />
@@ -47,7 +47,7 @@
                                     {{ __('Forgot your password?') }}
                                 </a>
                             @endif
-                        </div>                        
+                        </div>
 
                         <div class="mt-4">
                             <button class="block px-4 py-2 w-full text-center text-white bg-purple-700 rounded-md hover:bg-purple-900">{{ __('Log in') }}</button>
@@ -63,7 +63,7 @@
 
                 <!-- Login banner -->
                 <div class="hidden h-screen md:block md:w-1/2 lg:w-2/3 xl:w-3/4">
-                    <img class="object-cover w-full h-full rounded-r-md" src="{{ URL::asset('storage/assets/images/frontend/login/login-cover.webp') }}">
+                    <img class="object-cover w-full h-full rounded-r-md" src="{{ URL::asset('asserts/images/auth/login-cover.jpg') }}">
                 </div>
             </div>
         </div>
