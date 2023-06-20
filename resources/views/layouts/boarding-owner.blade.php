@@ -62,13 +62,23 @@
                 <nav class="flex-1 overflow-hidden hover:overflow-y-auto">
                     <ul class="p-2 overflow-hidden">
                         <li>
-                            <a href="{{route('client.dashboard')}}"
+                            <a href="{{route('boarding-owner.dashboard')}}"
                                class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
                                :class="{'justify-center': !isSidebarOpen}">
                 <span>
                 <i class="fa-duotone fa-grid-horizontal"></i>
                 </span>
                                 <span :class="{ 'lg:hidden': !isSidebarOpen }">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('boarding-owner.boarding-house.index')}}"
+                               class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
+                               :class="{'justify-center': !isSidebarOpen}">
+                <span>
+                    <i class="fa-regular fa-house"></i>
+                </span>
+                                <span :class="{ 'lg:hidden': !isSidebarOpen }">Boarding Places</span>
                             </a>
                         </li>
                         <li>
