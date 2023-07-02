@@ -59,21 +59,29 @@
                         </a>
                     </div>
                     <div class="p-5">
-                        <a href="#">
-                            <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">{{$boarding_place->name}}</h5>
-                        </a>
+                        <div class="flex justify-between">
+                            <a href="#">
+                                <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">{{$boarding_place->name}}</h5>
+                            </a>
+                            <span
+                                class="p-1 text-xs bg-gray-600 h-full rounded-md text-white {{$boarding_place->publish_status == "Drafted" ? 'bg-gray-600' : ($boarding_place->publish_status == "Approved" ? 'bg-green-600' : 'bg-red-600' )}}">{{$boarding_place->publish_status}}</span>
+                        </div>
                         <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Here are the biggest enterprise
                             technology acquisitions of 2021 so far, in reverse chronological order.</p>
                         <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Price:
                             Rs.{{$boarding_place->price}}/=</p>
                         <div class="flex flex-row justify-end">
-                            <a x-on:click="editModalShow = true" wire:click="editPost({{$boarding_place->id}})"
-                               class="ml-1 cursor-pointer text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                <i class="fa-solid fa-pen-to-square"></i>
+
+                            <a
+                                wire:click="approveBoardingPlace({{$boarding_place->id}})"
+                                class="ml-1 cursor-pointer text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                <i class="fa-solid fa-circle-check"></i>
                             </a>
-                            <a x-on:click="deleteModalShow = true" wire:click="deletePost({{$boarding_place->id}})"
-                               class="ml-1 cursor-pointer text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                <i class="fa-duotone fa-trash"></i>
+
+                            <a
+                                wire:click="rejectBoardingPlace({{$boarding_place->id}})"
+                                class="ml-1 cursor-pointer text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                <i class="fa-solid fa-thumbs-down"></i>
                             </a>
                         </div>
                     </div>
@@ -86,5 +94,5 @@
         </div>
     </div>
     <!-- Create, Edit, Delete Modal -->
-    @include('livewire.boarding-owner.components.model')
+    @include('livewire.boarding-owner.manage-boarding-places.components.model')
 </div>

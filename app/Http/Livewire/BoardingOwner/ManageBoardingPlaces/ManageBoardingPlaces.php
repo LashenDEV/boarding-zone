@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\BoardingOwner;
+namespace App\Http\Livewire\BoardingOwner\ManageBoardingPlaces;
 
 use App\Models\BoardingPlace;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +24,7 @@ class ManageBoardingPlaces extends Component
     public function render()
     {
         $boarding_places = BoardingPlace::orderBy('id', 'DESC')->paginate(4);
-        return view('livewire.boarding-owner.manage-boarding-places', compact('boarding_places'));
+        return view('livewire.boarding-owner.manage-boarding-places.manage-boarding-places', compact('boarding_places'));
     }
 
     public function updated($propertyName)

@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->string('name');
             $table->string('thumbnail');
             $table->decimal('price');
-            $table->enum('publish_status', ['Drafted', 'Approved', 'Disapproved']);
+            $table->enum('publish_status', ['Drafted', 'Approved', 'Rejected']);
             $table->unsignedBigInteger('bowner_id');
             $table->timestamps();
 

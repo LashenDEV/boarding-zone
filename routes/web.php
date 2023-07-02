@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\BoardingOwner\ManageBoardingPlace;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +38,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
+
+    Route::get('/boarding-places', [App\Http\Controllers\Admin\ManageBoardingPlace::class, 'index'])->name('admin.boarding-house.index');
 });
 
 //Routes for Boarding Owner
@@ -47,7 +48,7 @@ Route::group(['prefix' => 'boarding-owner', 'middleware' => ['auth', 'is_b_owner
         return view('boarding-owner.dashboard');
     })->name('boarding-owner.dashboard');
 
-    Route::get('/boarding-places', [ManageBoardingPlace::class, 'index'])->name('boarding-owner.boarding-house.index');
+    Route::get('/boarding-places', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'index'])->name('boarding-owner.boarding-house.index');
 });
 
 //Routes for IsClient
