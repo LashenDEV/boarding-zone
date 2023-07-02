@@ -10,7 +10,7 @@
      @flash-message.window="flashMessageShow = true"
 >
     <div>
-        {{--        @include('livewire.backend.components.flash-message')--}}
+        @include('livewire.components.flash-message')
     </div>
     <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg my-4">
         <div class="p-6 text-gray-900 font-bold dark:text-gray-100 flex justify-between items-center">
@@ -47,121 +47,44 @@
     </div>
     <div class="relative flex p-5 overflow-x-auto shadow-md sm:rounded-lg">
 
-        <div class="max-w-2xl mx-auto">
-            <div
-                class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg"
-                         src="https://nationalholidayresorts.lk/storage/common_media/nuwara-eliya-holiday-resort-122580322120.jpg"
-                         alt="">
-                </a>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">Noteworthy
-                            technology acquisitions 2021</h5>
-                    </a>
-                    <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Here are the biggest enterprise
-                        technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                    <a href="#"
-                       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Read more
-                        <svg class="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                  clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
-                    <a href="#"
-                       class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </a>
-                    <a href="#"
-                       class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <i class="fa-duotone fa-trash"></i>
-                    </a>
+        @foreach($boarding_places as $boarding_place)
+            <div class="max-w-xl m-2 justify-evenly">
+                <div
+                    class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
+                    <div class="h-[200px]">
+                        <a href="#">
+                            <img class="rounded-t-lg object-cover h-[200px] w-full"
+                                 src="{{asset('storage/' . $boarding_place->thumbnail)}}"
+                                 alt="">
+                        </a>
+                    </div>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">{{$boarding_place->name}}</h5>
+                        </a>
+                        <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Here are the biggest enterprise
+                            technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                        <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Price:
+                            Rs.{{$boarding_place->price}}/=</p>
+                        <div class="flex flex-row justify-end">
+                            <a x-on:click="editModalShow = true" wire:click="editPost({{$boarding_place->id}})"
+                               class="ml-1 cursor-pointer text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <a x-on:click="deleteModalShow = true" wire:click="deletePost({{$boarding_place->id}})"
+                               class="ml-1 cursor-pointer text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                <i class="fa-duotone fa-trash"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="max-w-2xl mx-auto">
-            <div
-                class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg"
-                         src="https://nationalholidayresorts.lk/storage/common_media/nuwara-eliya-holiday-resort-122580322120.jpg"
-                         alt="">
-                </a>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">Noteworthy
-                            technology acquisitions 2021</h5>
-                    </a>
-                    <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Here are the biggest enterprise
-                        technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                    <a href="#"
-                       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Read more
-                        <svg class="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                  clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
-                    <a href="#"
-                       class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </a>
-                    <a href="#"
-                       class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <i class="fa-duotone fa-trash"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="max-w-2xl mx-auto">
-            <div
-                class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg"
-                         src="https://nationalholidayresorts.lk/storage/common_media/nuwara-eliya-holiday-resort-122580322120.jpg"
-                         alt="">
-                </a>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">Noteworthy
-                            technology acquisitions 2021</h5>
-                    </a>
-                    <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Here are the biggest enterprise
-                        technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                    <a href="#"
-                       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Read more
-                        <svg class="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                  clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
-                    <a href="#"
-                       class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </a>
-                    <a href="#"
-                       class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <i class="fa-duotone fa-trash"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
+        @endforeach
 
         <div class="p-2">
-            {{--            {{$posts->links()}}--}}
+            {{$boarding_places->links()}}
         </div>
     </div>
     <!-- Create, Edit, Delete Modal -->
-        @include('livewire.components.model')
+    @include('livewire.boarding-owner.components.model')
 </div>

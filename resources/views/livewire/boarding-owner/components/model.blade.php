@@ -24,12 +24,13 @@
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add a Boarding House</h3>
                 <form class="space-y-6" action="#" wire:submit.prevent="storePostData" wire:click.self="resetFields()">
                     <div>
-                        <label for="title"
-                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name of the boarding</label>
-                        <input type="text" name="title" id="title" wire:model.defer="title"
+                        <label for="name"
+                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Boarding
+                            Name</label>
+                        <input type="text" name="name" id="name" wire:model.defer="name"
                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                               placeholder="Post Title">
-                        @error('title')
+                               placeholder="Boarding Name">
+                        @error('name')
                         <p class="peer-invalid:visible text-red-700 font-light">
                             {{$message}}
                         </p>
@@ -55,44 +56,19 @@
                         @enderror
                     </div>
                     <div>
-                        <label for="shortDescription"
-                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Short
-                            Description</label>
-                        <textarea id="shortDescription" wire:model.defer="shortDescription" rows="4"
-                                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                  placeholder="Add a short description"></textarea>
-                        @error('shortDescription')
-                        <p class="peer-invalid:visible text-red-700 font-light">
-                            {{$message}}
-                        </p>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="tags"
-                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tags</label>
-                        <input type="text" name="tags" id="tags" wire:model.defer="tags"
-                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                               placeholder="Add Tags">
-                        <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">
-                            Add tags seperated by commas
-                        </div>
-                        @error('tags')
-                        <p class="peer-invalid:visible text-red-700 font-light">
-                            {{$message}}
-                        </p>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="slug"
+                        <label for="price"
                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-                        <input type="text" name="slug" id="slug" wire:model.defer="slug"
+                        <input type="number" min="1" step="any" name="price" id="price" wire:model.defer="price"
                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                placeholder="Price">
-                        @error('slug')
+                        @error('price')
                         <p class="peer-invalid:visible text-red-700 font-light">
                             {{$message}}
                         </p>
                         @enderror
+                    </div>
+                    <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">
+                        Add a price that is not used before.
                     </div>
                     <button type="submit"
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -128,12 +104,13 @@
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit Post</h3>
                 <form class="space-y-6" action="#" wire:submit.prevent="editPostData">
                     <div>
-                        <label for="title"
-                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                        <input type="text" name="title" id="title" wire:model.defer="title"
+                        <label for="name"
+                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Boarding
+                            Name</label>
+                        <input type="text" name="name" id="name" wire:model.defer="name"
                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                placeholder="Post Title">
-                        @error('title')
+                        @error('name')
                         <p class="peer-invalid:visible text-red-700 font-light">
                             {{$message}}
                         </p>
@@ -161,55 +138,15 @@
                         @enderror
                     </div>
                     <div>
-                        <label for="shortDescription"
-                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Short
-                            Description</label>
-                        <textarea id="shortDescription" wire:model.defer="shortDescription" rows="4"
-                                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                  placeholder="Add a short description"></textarea>
-                        @error('shortDescription')
-                        <p class="peer-invalid:visible text-red-700 font-light">
-                            {{$message}}
-                        </p>
-                        @enderror
-                    </div>
-                    <label for="article"
-                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Post</label>
-                    <div wire:ignore>
-                        <div id="editPostEditor" wire:model.defer="article" data-article={{ $article }} rows="4"
-                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        >{{ $article }}</div>
-                        @error('article')
-                        <p class="peer-invalid:visible text-red-700 font-light">
-                            {{$message}}
-                        </p>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="tags"
-                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tags</label>
-                        <input type="text" name="tags" id="tags" wire:model.defer="tags"
+                        <label for="price"
+                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+                        <input type="number" min="1" step="any" name="price" id="price" wire:model.defer="price"
                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                               placeholder="Add Tags">
+                               placeholder="Add a price">
                         <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">
-                            Add tags seperated by commas
+                            Add a price that is not used before.
                         </div>
-                        @error('tags')
-                        <p class="peer-invalid:visible text-red-700 font-light">
-                            {{$message}}
-                        </p>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="slug"
-                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Slug</label>
-                        <input type="text" name="slug" id="slug" wire:model.defer="slug"
-                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                               placeholder="Add a slug">
-                        <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">
-                            Add a slug that is not used before.
-                        </div>
-                        @error('slug')
+                        @error('price')
                         <p class="peer-invalid:visible text-red-700 font-light">
                             {{$message}}
                         </p>
@@ -252,7 +189,7 @@
                       d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
                       clip-rule="evenodd"></path>
             </svg>
-            <p class="mb-4 text-gray-500 dark:text-gray-300">Are you sure you want to delete this category?</p>
+            <p class="mb-4 text-gray-500 dark:text-gray-300">Are you sure you want to delete this boarding house?</p>
             <div class="flex justify-center items-center space-x-4">
                 <button x-on:click="deleteModalShow = false" type="button"
                         class="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">

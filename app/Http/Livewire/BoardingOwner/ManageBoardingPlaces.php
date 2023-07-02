@@ -2,9 +2,8 @@
 
 namespace App\Http\Livewire\BoardingOwner;
 
-use App\Models\Category;
-use App\Models\Post;
-use Cviebrock\EloquentSluggable\Services\SlugService;
+use App\Models\BoardingPlace;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -15,19 +14,17 @@ class ManageBoardingPlaces extends Component
 
     use WithPagination;
 
-    public $postId, $categoryId, $title, $old_thumbnail, $thumbnail, $article, $category, $tags, $shortDescription, $status, $slug, $search = '';
+    public $name, $old_thumbnail, $thumbnail, $price, $boardingId, $publish_status;
     protected $rules = [
-        'title' => 'required',
-        'article' => 'required',
+        'name' => 'required',
         'thumbnail' => 'required|image|mimes:jpeg,png,jpg,webp|max:1024',
-        'category' => 'required',
-        'tags' => 'required',
-        'shortDescription' => 'required',
+        'price' => 'required',
     ];
 
     public function render()
     {
-        return view('livewire.boarding-owner.manage-boarding-places');
+        $boarding_places = BoardingPlace::orderBy('id', 'DESC')->paginate(4);
+        return view('livewire.boarding-owner.manage-boarding-places', compact('boarding_places'));
     }
 
     public function updated($propertyName)
@@ -40,30 +37,21 @@ class ManageBoardingPlaces extends Component
         $this->reset();
     }
 
-    //Generate Slug
-    public function generateSlug()
-    {
-        $this->slug = SlugService::createSlug(Post::class, 'slug', $this->title);
-    }
-
 
     public function storePostData()
     {
         $this->validate();
 
-        $post = new Post();
-        $post->title = $this->title;
-        $post->article = $this->article;
-        $post->category_id = $this->category;
+        $post = new BoardingPlace();
+        $post->name = $this->name;
         $thumbnail_name = $this->thumbnail->store('thumbnails', 'public');
         $post->thumbnail = $thumbnail_name;
-        $post->tags = $this->tags;
-        $post->shortDescription = $this->shortDescription;
-        $post->status = 'Drafted';
-        $post->slug = $this->slug;
+        $post->publish_status = 'Drafted';
+        $post->price = $this->price;
+        $post->bowner_id = Auth::user()->id;
         $post->save();
 
-        session()->flash('success', 'Post added successfully');
+        session()->flash('success', 'Boarding Place added successfully');
 
         $this->reset();
 
@@ -75,45 +63,34 @@ class ManageBoardingPlaces extends Component
     {
         $this->reset();
 
-        $post = Post::whereId($id)->first();
-        $this->postId = $post->id;
-        $this->title = $post->title;
-        $this->article = $post->article;
-        $this->category = $post->category_id;
-        $this->categoryId = $post->category_id;
-        $this->old_thumbnail = $post->thumbnail;
-        $this->tags = $post->tags;
-        $this->shortDescription = $post->shortDescription;
-        $this->status = 'Drafted';
-        $this->slug = $post->slug;
+        $boarding_place = BoardingPlace::whereId($id)->first();
+        $this->boardingId = $boarding_place->id;
+        $this->name = $boarding_place->name;
+        $this->old_thumbnail = $boarding_place->thumbnail;
+        $this->publish_status = $boarding_place->publish_status;
+        $this->price = $boarding_place->price;
 
-        $this->dispatchBrowserEvent('post-data', ['postData' => $this->article]);
+//        $this->dispatchBrowserEvent('post-data', ['postData' => $this->article]);
     }
 
     public function editPostData()
     {
-        $post = Post::whereId($this->postId)->first();
-        $post->title = $this->title;
-        $post->article = $this->article;
-        $post->category_id = $this->categoryId;
-
+        $boarding_place = BoardingPlace::whereId($this->boardingId)->first();
+        $boarding_place->name = $this->name;
         if ($this->thumbnail) {
             if ($this->thumbnail->isFile()) {
                 if (file_exists(public_path('storage/' . $this->old_thumbnail))) {
                     unlink(public_path('storage/' . $this->old_thumbnail));
                 }
                 $thumbnail_name = $this->thumbnail->store('thumbnails', 'public');
-                $post->thumbnail = $thumbnail_name;
+                $boarding_place->thumbnail = $thumbnail_name;
             }
         }
+        $boarding_place->price = $this->price;
+        $boarding_place->bowner_id = Auth::user()->id;
+        $boarding_place->save();
 
-        $post->tags = $this->tags;
-        $post->shortDescription = $this->shortDescription;
-        $post->status = 'Drafted';
-        $post->slug = $this->slug;
-        $post->save();
-
-        session()->flash('success', 'Post Updated Successfully');
+        session()->flash('success', 'Boarding Updated Successfully');
 
         $this->reset();
 
@@ -123,8 +100,8 @@ class ManageBoardingPlaces extends Component
 
     public function deletePost($id)
     {
-        $this->postId = Post::findOrFail($id)->id;
-        $this->old_thumbnail = Post::findOrFail($id)->thumbnail;
+        $this->boardingId = BoardingPlace::findOrFail($id)->id;
+        $this->old_thumbnail = BoardingPlace::findOrFail($id)->thumbnail;
     }
 
     public function deletePostData()
@@ -133,7 +110,7 @@ class ManageBoardingPlaces extends Component
             unlink(public_path('storage/' . $this->old_thumbnail));
         }
 
-        Post::findOrFail($this->postId)->delete();
+        BoardingPlace::findOrFail($this->boardingId)->delete();
         session()->flash('success', 'Post Deleted Successfully');
 
         $this->reset();
