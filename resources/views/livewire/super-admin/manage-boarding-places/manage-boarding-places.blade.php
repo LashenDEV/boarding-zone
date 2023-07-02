@@ -86,8 +86,8 @@
                             @elseif($boarding_place->publish_status == 'Approved')
                                 <a
                                     wire:click="rejectBoardingPlace({{$boarding_place->id}})"
-                                    class="ml-1 cursor-pointer text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    <i class="fa-solid fa-circle-check"></i>
+                                    class="ml-1 cursor-pointer text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    <i class="fa-solid fa-thumbs-down"></i>
                                 </a>
                             @else
                                 <a
@@ -96,6 +96,14 @@
                                     <i class="fa-solid fa-circle-check"></i>
                                 </a>
                             @endif
+                            <a x-on:click="editModalShow = true" wire:click="editPost({{$boarding_place->id}})"
+                               class="ml-1 cursor-pointer text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <a x-on:click="deleteModalShow = true" wire:click="deletePost({{$boarding_place->id}})"
+                               class="ml-1 cursor-pointer text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800">
+                                <i class="fa-duotone fa-trash"></i>
+                            </a>
                         </div>
                     </div>
                 </div>

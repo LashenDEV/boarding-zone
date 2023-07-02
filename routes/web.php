@@ -31,6 +31,8 @@ Route::group(['prefix' => 'super-admin', 'middleware' => ['auth', 'is_s_admin']]
     Route::get('/dashboard', function () {
         return view('super-admin.dashboard');
     })->name('super-admin.dashboard');
+
+    Route::get('/boarding-places', [App\Http\Controllers\SuperAdmin\ManageBoardingPlace::class, 'index'])->name('super-admin.boarding-house.index');
 });
 
 //Routes for Admin
