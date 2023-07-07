@@ -18,6 +18,6 @@ class IsClient
         if (auth()->user()->userType == 'CLNT') {
             return $next($request);
         }
-        return redirect('/')->with('error', "You don't have access to admin");
+//        return redirect('/')->with('error', "You don't have access to admin");
     }
 }

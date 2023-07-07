@@ -18,25 +18,25 @@
                 {{ __("All Boarding Places") }}
             </p>
 
-            <div class="w-[500px]">
-                <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-                <div class="relative">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none"
-                             stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                    </div>
-                    <input type="search" id="default-search" wire:model="search"
-                           class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                           placeholder="Search Posts" required>
-                    <button type="submit"
-                            class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Search
-                    </button>
-                </div>
-            </div>
+            {{--            <div class="w-[500px]">--}}
+            {{--                <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>--}}
+            {{--                <div class="relative">--}}
+            {{--                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">--}}
+            {{--                        <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none"--}}
+            {{--                             stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">--}}
+            {{--                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
+            {{--                                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>--}}
+            {{--                        </svg>--}}
+            {{--                    </div>--}}
+            {{--                    <input type="search" id="default-search" wire:model="search"--}}
+            {{--                           class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"--}}
+            {{--                           placeholder="Search Posts" required>--}}
+            {{--                    <button type="submit"--}}
+            {{--                            class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">--}}
+            {{--                        Search--}}
+            {{--                    </button>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
 
 
             <button x-on:click="createModalShow = true" wire:click="resetFields()"
@@ -59,11 +59,14 @@
                         </a>
                     </div>
                     <div class="p-5">
-                        <a href="#">
-                            <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">{{$boarding_place->name}}</h5>
-                        </a>
-                        <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Here are the biggest enterprise
-                            technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                        <div class="flex justify-between">
+                            <a href="#">
+                                <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">{{$boarding_place->name}}</h5>
+                            </a>
+                            <span
+                                class="p-1 text-xs bg-gray-600 h-full rounded-md text-white {{$boarding_place->publish_status == "Pending" ? 'bg-gray-600' : ($boarding_place->publish_status == "Approved" ? 'bg-green-600' : 'bg-red-600' )}}">{{$boarding_place->publish_status}}</span>
+                        </div>
+                        <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">{{$boarding_place->features}}</p>
                         <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Price:
                             Rs.{{$boarding_place->price}}/=</p>
                         <div class="flex flex-row justify-end">

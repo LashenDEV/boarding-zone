@@ -42,33 +42,137 @@
                                  src="{{$thumbnail->temporaryUrl()}}"/>
                         </div>
                     @endif
-                    <div>
-                        <input wire:model.defer="thumbnail"
-                               class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                               aria-describedby="thumbnail" id="thumbnail" type="file">
-                        <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="thumbnail">A
-                            thumbnail must be 1920px * 1080px
+                    <div class="flex justify-between">
+                        <div>
+                            <div class="p-1">
+                                <label for="thumbnail"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Thumbnail</label>
+                                <input wire:model.defer="thumbnail"
+                                       class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                       aria-describedby="thumbnail" id="thumbnail" type="file">
+                                <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="thumbnail">A
+                                    thumbnail must be 1920px * 1080px
+                                </div>
+                                @error('thumbnail')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
+                            <div class="pt-5">
+                                <label for="number_of_rooms"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Number of
+                                    Rooms</label>
+                                <input type="number" min="1" step="any" name="number_of_rooms" id="number_of_rooms"
+                                       wire:model.defer="number_of_rooms"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                       placeholder="Number of Rooms">
+                                @error('number_of_rooms')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
                         </div>
-                        @error('thumbnail')
-                        <p class="peer-invalid:visible text-red-700 font-light">
-                            {{$message}}
-                        </p>
-                        @enderror
+                        <div>
+                            <div class="p-1">
+                                <label for="price"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+                                <input type="number" min="1" step="any" name="price" id="price" wire:model.defer="price"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                       placeholder="Price">
+                                @error('price')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
+                            <div class="pt-5">
+                                <label for="target_audience"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Target
+                                    Audience</label>
+                                <input type="text" min="1" step="any" name="target_audience" id="target_audience"
+                                       wire:model.defer="target_audience"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                       placeholder="Target Audience">
+                                @error('target_audience')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div>
+                            <div class="p-1">
+                                <label for="payment_method"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Payment
+                                    Method</label>
+                                <input type="text" min="1" step="any" name="payment_method" id="payment_method"
+                                       wire:model.defer="payment_method"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                       placeholder="Payment Method">
+                                @error('payment_method')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
+                            <div class="pt-5">
+                                <label for="availability"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Availability</label>
+                                <input type="number" min="1" step="any" name="availability" id="availability"
+                                       wire:model.defer="availability"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                @error('availability')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div>
+                            <label for="location">Location</label>
+                            <div class="p-1">
+                                <label for="latitude"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Latitude</label>
+                                <input type="number" min="1" step="any" name="latitude" id="latitude"
+                                       wire:model.defer="latitude"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                       placeholder="Latitude">
+                                @error('latitude')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
+                            <div class="p-1">
+                                <label for="longitude"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Longitude</label>
+                                <input type="number" min="1" step="any" name="longitude" id="longitude"
+                                       wire:model.defer="longitude"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                       placeholder="Longitude">
+                                @error('longitude')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
                     <div>
-                        <label for="price"
-                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-                        <input type="number" min="1" step="any" name="price" id="price" wire:model.defer="price"
-                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                               placeholder="Price">
-                        @error('price')
+                        <label for="features"
+                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Features</label>
+                        <textarea type="number" min="1" step="any" name="features" id="features" rows="5"
+                                  wire:model.defer="features"
+                                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                  placeholder="Features">
+                        </textarea>
+                        @error('features')
                         <p class="peer-invalid:visible text-red-700 font-light">
                             {{$message}}
                         </p>
                         @enderror
-                    </div>
-                    <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">
-                        Add a price that is not used before.
                     </div>
                     <button type="submit"
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -122,38 +226,140 @@
                                  src="{{ $thumbnail ? $thumbnail->temporaryUrl() : asset('storage/'. $old_thumbnail)}}"/>
                         </div>
                     @endif
-                    <div>
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                               for="thumbnail">Upload file</label>
-                        <input wire:model.defer="thumbnail"
-                               class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                               aria-describedby="thumbnail" id="thumbnail" type="file">
-                        <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="thumbnail">A
-                            thumbnail must be 1920px * 1080px
+                    <div class="flex justify-between">
+                        <div>
+
+                            <div class="p-1">
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                       for="thumbnail">Upload file</label>
+                                <input wire:model.defer="thumbnail"
+                                       class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                       aria-describedby="thumbnail" id="thumbnail" type="file">
+                                <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="thumbnail">A
+                                    thumbnail must be 1920px * 1080px
+                                </div>
+                                @error('thumbnail')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
+                            <div class="p-1">
+                                <label for="number_of_rooms"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Number of
+                                    Rooms</label>
+                                <input type="number" min="1" step="any" name="number_of_rooms" id="number_of_rooms"
+                                       wire:model.defer="number_of_rooms"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                       placeholder="Number of Rooms">
+                                @error('number_of_rooms')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
                         </div>
-                        @error('thumbnail')
-                        <p class="peer-invalid:visible text-red-700 font-light">
-                            {{$message}}
-                        </p>
-                        @enderror
+                        <div>
+                            <div>
+                                <label for="price"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+                                <input type="number" min="1" step="any" name="price" id="price" wire:model.defer="price"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                       placeholder="Add a price">
+                                @error('price')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
+                            <div class="pt-5">
+                                <label for="target_audience"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Target
+                                    Audience</label>
+                                <input type="text" min="1" step="any" name="target_audience" id="target_audience"
+                                       wire:model.defer="target_audience"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                       placeholder="Target Audience">
+                                @error('target_audience')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="payment_method"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Payment
+                                    Method</label>
+                                <input type="text" min="1" step="any" name="payment_method" id="payment_method"
+                                       wire:model.defer="payment_method"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                       placeholder="Payment Method">
+                                @error('payment_method')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
+                            <div class="pt-5">
+                                <label for="availability"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Availability</label>
+                                <input type="number" min="1" step="any" name="availability" id="availability"
+                                       wire:model.defer="availability"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                @error('availability')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div>
+                            <label for="location">Location</label>
+                            <div class="p-1">
+                                <label for="latitude"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Latitude</label>
+                                <input type="number" min="1" step="any" name="latitude" id="latitude"
+                                       wire:model.defer="latitude"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                       placeholder="Latitude">
+                                @error('latitude')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
+                            <div class="p-1">
+                                <label for="longitude"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Longitude</label>
+                                <input type="number" min="1" step="any" name="longitude" id="longitude"
+                                       wire:model.defer="longitude"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                       placeholder="Longitude">
+                                @error('longitude')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
                     <div>
-                        <label for="price"
-                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-                        <input type="number" min="1" step="any" name="price" id="price" wire:model.defer="price"
-                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                               placeholder="Add a price">
-                        <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">
-                            Add a price that is not used before.
-                        </div>
-                        @error('price')
+                        <label for="features"
+                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Features</label>
+                        <textarea type="number" min="1" step="any" name="features" id="features" rows="5"
+                                  wire:model.defer="features"
+                                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                  placeholder="Add a features"></textarea>
+                        @error('features')
                         <p class="peer-invalid:visible text-red-700 font-light">
                             {{$message}}
                         </p>
                         @enderror
                     </div>
                     <button type="submit"
-                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            class="text-white flex justify-end bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Update
                     </button>
                 </form>
@@ -209,7 +415,7 @@
         const createPostEditor = CKEDITOR.replace('createPostEditor');
         createPostEditor.on('change', function (event) {
             console.log(event.editor.getData())
-        @this.set('article', event.editor.getData());
+            @this.set('article', event.editor.getData());
         });
     </script>
 
@@ -220,7 +426,8 @@
             editPostEditor.setData(article);
         })
         editPostEditor.on('change', function (event) {
-        @this.set('article', event.editor.getData());
+            @this.
+            set('article', event.editor.getData());
         });
     </script>
 @endpush

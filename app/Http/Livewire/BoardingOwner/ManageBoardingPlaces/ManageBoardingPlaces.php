@@ -14,11 +14,18 @@ class ManageBoardingPlaces extends Component
 
     use WithPagination;
 
-    public $name, $old_thumbnail, $thumbnail, $price, $boardingId, $publish_status;
+    public $name, $old_thumbnail, $thumbnail, $price, $boardingId, $publish_status, $number_of_rooms, $target_audience, $availability = 1, $payment_method, $latitude, $longitude, $features;
     protected $rules = [
         'name' => 'required',
         'thumbnail' => 'required|image|mimes:jpeg,png,jpg,webp|max:1024',
         'price' => 'required',
+        'number_of_rooms' => 'required',
+        'target_audience' => 'required',
+        'availability' => 'required',
+        'payment_method' => 'required',
+        'latitude' => 'required',
+        'longitude' => 'required',
+        'features' => 'required'
     ];
 
     public function render()
@@ -46,8 +53,15 @@ class ManageBoardingPlaces extends Component
         $post->name = $this->name;
         $thumbnail_name = $this->thumbnail->store('thumbnails', 'public');
         $post->thumbnail = $thumbnail_name;
-        $post->publish_status = 'Drafted';
+        $post->publish_status = 'Pending';
         $post->price = $this->price;
+        $post->number_of_rooms = $this->number_of_rooms;
+        $post->target_audience = $this->target_audience;
+        $post->availability = $this->availability;
+        $post->payment_method = $this->payment_method;
+        $post->latitude = $this->latitude;
+        $post->longitude = $this->longitude;
+        $post->features = $this->features;
         $post->bowner_id = Auth::user()->id;
         $post->save();
 
@@ -69,6 +83,13 @@ class ManageBoardingPlaces extends Component
         $this->old_thumbnail = $boarding_place->thumbnail;
         $this->publish_status = $boarding_place->publish_status;
         $this->price = $boarding_place->price;
+        $this->number_of_rooms = $boarding_place->number_of_rooms;
+        $this->target_audience = $boarding_place->target_audience;
+        $this->availability = $boarding_place->availability;
+        $this->payment_method = $boarding_place->payment_method;
+        $this->latitude = $boarding_place->latitude;
+        $this->longitude = $boarding_place->longitude;
+        $this->features = $boarding_place->features;
 
 //        $this->dispatchBrowserEvent('post-data', ['postData' => $this->article]);
     }
@@ -87,6 +108,13 @@ class ManageBoardingPlaces extends Component
             }
         }
         $boarding_place->price = $this->price;
+        $boarding_place->number_of_rooms = $this->number_of_rooms;
+        $boarding_place->target_audience = $this->target_audience;
+        $boarding_place->availability = $this->availability;
+        $boarding_place->payment_method = $this->payment_method;
+        $boarding_place->latitude = $this->latitude;
+        $boarding_place->longitude = $this->longitude;
+        $boarding_place->features = $this->features;
         $boarding_place->bowner_id = Auth::user()->id;
         $boarding_place->save();
 
