@@ -18,6 +18,6 @@ class IsAdmin
         if (auth()->user()->userType == 'ADM') {
             return $next($request);
         }
-        return redirect('/')->with('error', "You don't have access to admin");
+//        return redirect('/')->with('error', "You don't have access to admin");
     }
 }

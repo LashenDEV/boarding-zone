@@ -42,7 +42,7 @@
                 <div class="flex items-center justify-between flex-shrink-0 p-2"
                      :class="{'lg:justify-center': !isSidebarOpen}">
           <span class="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
-            O<span :class="{'lg:hidden': !isSidebarOpen}">wner </span>D<span
+            A<span :class="{'lg:hidden': !isSidebarOpen}">dmin </span>D<span
                   :class="{'lg:hidden': !isSidebarOpen}">ashboard</span>
           </span>
                     <button @click="toggleSidbarMenu()" class="p-2 rounded-md lg:hidden">
@@ -72,7 +72,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('boarding-owner.boarding-house.index')}}"
+                            <a href="{{route('admin.boarding-house.index')}}"
                                class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
                                :class="{'justify-center': !isSidebarOpen}">
                 <span>
