@@ -59,6 +59,20 @@
                                 </p>
                                 @enderror
                             </div>
+                            <div class="p-1">
+                                <label for="boarding_images"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Images</label>
+                                <input wire:model.defer="boarding_images"
+                                       class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                       aria-describedby="boarding_images" id="boarding_images" type="file" multiple>
+                                <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="boarding_images">
+                                </div>
+                                @error('boarding_images')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
                             <div class="pt-5">
                                 <label for="number_of_rooms"
                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Number of
@@ -221,14 +235,31 @@
                         @enderror
                     </div>
                     @if ($thumbnail || $old_thumbnail)
-                        <div class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white w-64">
-                            <img class="object-cover h-28 w-64"
-                                 src="{{ $thumbnail ? $thumbnail->temporaryUrl() : asset('storage/'. $old_thumbnail)}}"/>
+                        <div class="px-6 py-4 flex font-medium text-gray-900 dark:text-white w-full">
+                            <div class="whitespace-nowrap h-[200px] w-[300px]">
+                                <img class="object-cover h-[200px] w-[300px]"
+                                     src="{{ $thumbnail ? $thumbnail->temporaryUrl() : asset('storage/'. $old_thumbnail)}}"/>
+                            </div>
+                            <livewire:boarding-owner.manage-boarding-places.boarding-preview-images
+                                :old_boarding_images="$old_boarding_images"/>
+                            <div class="p-1">
+                                <label for="boarding_images"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Images</label>
+                                <input wire:model.defer="boarding_images"
+                                       class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                       aria-describedby="boarding_images" id="boarding_images" type="file" multiple>
+                                <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="boarding_images">
+                                </div>
+                                @error('boarding_images')
+                                <p class="peer-invalid:visible text-red-700 font-light">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
                         </div>
                     @endif
                     <div class="flex justify-between">
                         <div>
-
                             <div class="p-1">
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                        for="thumbnail">Upload file</label>

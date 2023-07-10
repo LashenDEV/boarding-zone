@@ -41,7 +41,7 @@
                 <!-- sidebar header -->
                 <div class="flex items-center justify-between flex-shrink-0 p-2"
                      :class="{'lg:justify-center': !isSidebarOpen}">
-          <span class="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
+          <span class="p-2 text-lg font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
             O<span :class="{'lg:hidden': !isSidebarOpen}">wner </span>D<span
                   :class="{'lg:hidden': !isSidebarOpen}">ashboard</span>
           </span>

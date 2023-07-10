@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\BoardingOwner\ManageBoardingPlaces;
 
 use App\Models\BoardingPlace;
+use App\Models\BoardingPlaceImages;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -14,10 +16,11 @@ class ManageBoardingPlaces extends Component
 
     use WithPagination;
 
-    public $name, $old_thumbnail, $thumbnail, $price, $boardingId, $publish_status, $number_of_rooms, $target_audience, $availability = 1, $payment_method, $latitude, $longitude, $features;
+    public $name, $old_thumbnail, $thumbnail, $price, $boardingId, $publish_status, $number_of_rooms, $target_audience, $availability = 1, $payment_method, $latitude, $longitude, $features, $boarding_images = [], $old_boarding_images = [];
     protected $rules = [
         'name' => 'required',
         'thumbnail' => 'required|image|mimes:jpeg,png,jpg,webp|max:1024',
+        'boarding_images' => 'required',
         'price' => 'required',
         'number_of_rooms' => 'required',
         'target_audience' => 'required',
@@ -65,6 +68,17 @@ class ManageBoardingPlaces extends Component
         $post->bowner_id = Auth::user()->id;
         $post->save();
 
+        foreach ($this->boarding_images as $key => $image) {
+            $bimage = new BoardingPlaceImages();
+            $bimage->boarding_id = $post->id;
+
+            $imageName = Carbon::now()->timestamp . $key . '.' . $this->boarding_images[$key]->extension();
+            $this->boarding_images[$key]->storeAs('boarding/images/', $imageName, 'public');
+
+            $bimage->image = $imageName;
+            $bimage->save();
+        }
+
         session()->flash('success', 'Boarding Place added successfully');
 
         $this->reset();
@@ -91,7 +105,7 @@ class ManageBoardingPlaces extends Component
         $this->longitude = $boarding_place->longitude;
         $this->features = $boarding_place->features;
 
-//        $this->dispatchBrowserEvent('post-data', ['postData' => $this->article]);
+        $this->old_boarding_images = BoardingPlaceImages::where('boarding_id', $id)->get();
     }
 
     public function editPostData()
@@ -118,6 +132,17 @@ class ManageBoardingPlaces extends Component
         $boarding_place->bowner_id = Auth::user()->id;
         $boarding_place->save();
 
+        foreach ($this->boarding_images as $key => $image) {
+            $bimage = new BoardingPlaceImages();
+            $bimage->boarding_id = $this->boardingId;
+
+            $imageName = Carbon::now()->timestamp . $key . '.' . $this->boarding_images[$key]->extension();
+            $this->boarding_images[$key]->storeAs('boarding/images/', $imageName, 'public');
+
+            $bimage->image = $imageName;
+            $bimage->save();
+        }
+
         session()->flash('success', 'Boarding Updated Successfully');
 
         $this->reset();
@@ -136,6 +161,14 @@ class ManageBoardingPlaces extends Component
     {
         if (file_exists(public_path('storage/' . $this->old_thumbnail))) {
             unlink(public_path('storage/' . $this->old_thumbnail));
+        }
+
+        $this->boarding_images = BoardingPlaceImages::where('boarding_id', $this->boardingId)->pluck('image');
+
+        foreach ($this->boarding_images as $boarding_image) {
+            if (file_exists(public_path('storage/boarding/images/' . $boarding_image))) {
+                unlink(public_path('storage/boarding/images/' . $boarding_image));
+            }
         }
 
         BoardingPlace::findOrFail($this->boardingId)->delete();
