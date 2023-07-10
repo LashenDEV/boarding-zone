@@ -46,7 +46,6 @@
         </div>
     </div>
     <div class="relative flex p-5 overflow-x-auto shadow-md sm:rounded-lg">
-
         @foreach($boarding_places as $boarding_place)
             <div class="max-w-xl m-2 justify-evenly">
                 <div
