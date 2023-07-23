@@ -44,10 +44,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
 
 //Routes for Boarding Owner
 Route::group(['prefix' => 'boarding-owner', 'middleware' => ['auth', 'is_b_owner']], function () {
-    Route::get('/dashboard', function () {
-        return view('boarding-owner.dashboard');
-    })->name('boarding-owner.dashboard');
-
+    Route::get('/dashboard', [App\Http\Controllers\BoardingOwner\ManageDashboard::class, 'index'])->name('boarding-owner.dashboard');
     Route::get('/boarding-places', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'index'])->name('boarding-owner.boarding-house.index');
 });
 
