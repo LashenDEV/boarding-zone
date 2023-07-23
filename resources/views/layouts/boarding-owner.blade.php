@@ -86,9 +86,9 @@
                                class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
                                :class="{'justify-center': !isSidebarOpen}">
                 <span>
-                    <i class="fa-duotone fa-comment-question"></i>
+                    <i class="fa-duotone fa-dollar-sign"></i>
                 </span>
-                                <span :class="{ 'lg:hidden': !isSidebarOpen }">Questions</span>
+                                <span :class="{ 'lg:hidden': !isSidebarOpen }">Payments</span>
                             </a>
                         </li>
                         <!-- Sidebar Links... -->
@@ -96,9 +96,11 @@
                 </nav>
                 <!-- Sidebar footer -->
                 <div class="flex-shrink-0 p-2 border-t max-h-14">
-                    <button
-                        class="flex items-center justify-center w-full px-4 py-2 space-x-1 font-medium tracking-wider uppercase bg-gray-100 border rounded-md focus:outline-none focus:ring"
-                    >
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit"
+                                class="flex items-center justify-center w-full px-4 py-2 space-x-1 font-medium tracking-wider uppercase bg-gray-100 border rounded-md focus:outline-none focus:ring"
+                        >
             <span>
               <svg
                   class="w-6 h-6"
@@ -115,8 +117,9 @@
                 />
               </svg>
             </span>
-                        <span :class="{'lg:hidden': !isSidebarOpen}"> Logout </span>
-                    </button>
+                            <span :class="{'lg:hidden': !isSidebarOpen}"> Logout </span>
+                        </button>
+                    </form>
                 </div>
             </aside>
 
@@ -463,21 +466,26 @@
                                     class="absolute mt-3 transform -translate-x-full bg-white rounded-md shadow-lg min-w-max"
                                 >
                                     <div class="flex flex-col p-4 space-y-1 font-medium border-b">
-                                        <span class="text-gray-800">Ahmed Kamel</span>
-                                        <span class="text-sm text-gray-400">ahmed.kamel@example.com</span>
+                                        <span
+                                            class="text-gray-800">{{\Illuminate\Support\Facades\Auth::user()->name}}</span>
+                                        <span
+                                            class="text-sm text-gray-400">{{\Illuminate\Support\Facades\Auth::user()->email}}</span>
                                     </div>
                                     <ul class="flex flex-col p-2 my-2 space-y-1">
                                         <li>
                                             <a href="#"
-                                               class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Link</a>
+                                               class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Profile</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Another
-                                                Link</a>
+                                            <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">My
+                                                Boarding Places</a>
                                         </li>
                                     </ul>
                                     <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">
-                                        <a href="#">Logout</a>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <button type="submit">Logout</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -490,7 +498,7 @@
                 </main>
                 <!-- Main footer -->
                 <footer class="flex items-center justify-between flex-shrink-0 p-4 border-t max-h-14">
-                    <div>CodeMastery &copy; 2023</div>
+                    <div>Boarding Zone &copy; 2023</div>
                     <div class="text-sm flex items-center">
                         Made with 💙️ by
                         <a
