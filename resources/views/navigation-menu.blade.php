@@ -19,6 +19,10 @@
                     <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                         {{ __('Home') }}
                     </x-nav-link>
+
+                    <x-nav-link href="{{ route('boarding-owner.map.blade.php') }}" :active="request()->routeIs('boarding-owner.map.blade.php')">
+                        {{ __('Map') }}
+                    </x-nav-link>
                 </div>
             </div>
 
