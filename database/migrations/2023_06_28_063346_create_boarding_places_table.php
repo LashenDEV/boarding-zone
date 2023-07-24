@@ -14,13 +14,13 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('thumbnail');
-            $table->decimal('price');
+            $table->double('price');
             $table->integer('number_of_rooms');
             $table->string('target_audience');
             $table->integer('availability');
             $table->string('payment_method');
-            $table->decimal('latitude');
-            $table->decimal('longitude');
+            $table->double('latitude');
+            $table->double('longitude');
             $table->text('features');
             $table->enum('publish_status', ['Pending', 'Approved', 'Rejected']);
             $table->unsignedBigInteger('bowner_id');

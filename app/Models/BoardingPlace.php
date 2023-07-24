@@ -18,5 +18,14 @@ class BoardingPlace extends Model
         'name',
         'thumbnail',
         'price',
+        'number_of_rooms',
+        'target_audience',
+        'availability',
+        'payment_method',
+        'latitude',
+        'longitude',
+        'features',
+        'publish_status',
+        'bowner_id',
     ];
 }
