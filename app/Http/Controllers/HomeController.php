@@ -11,9 +11,11 @@ class HomeController extends Controller
     public function checkUserType()
     {
         if (!Auth::user()) {
-            return view('welcome');
+            $boarding_places = BoardingPlace::where('publish_status', 'Approved')->get();
+            return view('home', compact('boarding_places'));
         } elseif (Auth::user()) {
-            return view('welcome');
+            $boarding_places = BoardingPlace::where('publish_status', 'Approved')->get();
+            return view('home', compact('boarding_places'));
         } elseif (Auth::user()->userType === 'SADM') {
             return redirect()->route('super-admin.dashboard');
         } elseif (Auth::user()->userType === 'ADM') {

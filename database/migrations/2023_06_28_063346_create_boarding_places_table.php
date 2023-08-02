@@ -22,7 +22,8 @@ return new class extends Migration {
             $table->double('latitude');
             $table->double('longitude');
             $table->text('features');
-            $table->enum('publish_status', ['Pending', 'Approved', 'Rejected']);
+            $table->enum('publish_status', ['Pending', 'Approved', 'Rejected'])->default('Pending');
+            $table->enum('is_reserved', ['Yes', 'No'])->default('No');
             $table->unsignedBigInteger('bowner_id');
             $table->timestamps();
 
