@@ -26,6 +26,7 @@ class BoardingPlace extends Model
         'longitude',
         'features',
         'publish_status',
+        'is_reserved',
         'bowner_id',
     ];
 }
