@@ -33,25 +33,43 @@
     {{--    </div>--}}
     <!-- Start Content -->
     <div class="grid grid-cols-1 gap-5 mt-6 sm:grid-cols-2 lg:grid-cols-4">
-        <template x-for="i in 4" :key="i">
-            <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
-                <div class="flex items-start justify-between">
-                    <div class="flex flex-col space-y-2">
-                        <span class="text-gray-400">Total Users</span>
-                        <span class="text-lg font-semibold">100,221</span>
-                    </div>
-                    <div class="p-10 bg-gray-200 rounded-md"></div>
+        <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
+            <div class="flex items-start justify-between">
+                <div class="flex flex-col space-y-2">
+                    <span class="text-gray-400">My Boarding Places</span>
+                    <h1 class="text-2xl p-5 font-bold">Jayagama</h1>
                 </div>
                 <div>
-                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
-                    <span>from 2019</span>
+                    <img src="{{asset('asserts/gifs/boarding_place.gif')}}" class="h-32 w-full" alt="">
                 </div>
             </div>
-        </template>
+        </div>
+        <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
+            <div class="flex items-start justify-between">
+                <div class="flex flex-col space-y-2">
+                    <span class="text-gray-400">Total Earnings</span>
+                    <h1 class="text-2xl p-5 font-bold">Rs. 5000</h1>
+                </div>
+                <div>
+                    <img src="{{asset('asserts/gifs/dollar.gif')}}" class="h-32 w-full" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
+            <div class="flex items-start justify-between">
+                <div class="flex flex-col space-y-2">
+                    <span class="text-gray-400">Total Boarders</span>
+                    <h1 class="text-2xl p-5 font-bold">12</h1>
+                </div>
+                <div>
+                    <img src="{{asset('asserts/gifs/waving.gif')}}" class="h-32 w-full" alt="">
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Table see (https://tailwindui.com/components/application-ui/lists/tables) -->
-    <h3 class="mt-6 text-xl">Users</h3>
+    <h3 class="mt-6 text-xl">Boarders</h3>
     <div class="flex flex-col mt-6">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -69,13 +87,13 @@
                                 scope="col"
                                 class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
                             >
-                                Title
+                                Boarding Name
                             </th>
                             <th
                                 scope="col"
                                 class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
                             >
-                                Status
+                                Payment Status
                             </th>
                             <th
                                 scope="col"
@@ -89,43 +107,41 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                        <template x-for="i in 10" :key="i">
-                            <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 w-10 h-10">
-                                            <img
-                                                class="w-10 h-10 rounded-full"
-                                                src="https://avatars0.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4"
-                                                alt=""
-                                            />
+                        <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 w-10 h-10">
+                                        <img
+                                            class="w-10 h-10 rounded-full"
+                                            src="https://avatars0.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">Ahmed Kamel
                                         </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900">Ahmed Kamel
-                                            </div>
-                                            <div class="text-sm text-gray-500">ahmed.kamel@example.com
-                                            </div>
+                                        <div class="text-sm text-gray-500">ahmed.kamel@example.com
                                         </div>
                                     </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">Regional Paradigm Technician
-                                    </div>
-                                    <div class="text-sm text-gray-500">Optimization</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">Jayagama B
+                                </div>
+                                <div class="text-sm text-gray-500">Jayagama</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
                             <span
                                 class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full"
                             >
-                              Active
+                              Done
                             </span>
-                                </td>
-                                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Admin</td>
-                                <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                </td>
-                            </tr>
-                        </template>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Student UWU</td>
+                            <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
