@@ -16,7 +16,7 @@ class ManageBoardingPlaces extends Component
 
     use WithPagination;
 
-    public $name, $old_thumbnail, $thumbnail, $price, $boardingId, $publish_status, $number_of_rooms, $target_audience, $availability = 1, $payment_method, $latitude, $longitude, $features, $boarding_images = [], $old_boarding_images = [];
+    public $name, $old_thumbnail, $thumbnail, $price, $boardingId, $publish_status, $number_of_rooms, $target_audience, $availability = 1, $payment_method, $latitude, $longitude, $features, $boarding_images = [], $old_boarding_images = [], $description = 'Student Haven is a comfortable and affordable boarding house located near the university campus. It offers a conducive environment for studying and socializing with fellow students.';
     protected $rules = [
         'name' => 'required',
         'thumbnail' => 'required|image|mimes:jpeg,png,jpg,webp|max:1024',
@@ -58,6 +58,7 @@ class ManageBoardingPlaces extends Component
         $post->thumbnail = $thumbnail_name;
         $post->publish_status = 'Pending';
         $post->price = $this->price;
+        $post->description = $this->description;
         $post->number_of_rooms = $this->number_of_rooms;
         $post->target_audience = $this->target_audience;
         $post->availability = $this->availability;
@@ -122,6 +123,7 @@ class ManageBoardingPlaces extends Component
             }
         }
         $boarding_place->price = $this->price;
+        $boarding_place->description = $this->description;
         $boarding_place->number_of_rooms = $this->number_of_rooms;
         $boarding_place->target_audience = $this->target_audience;
         $boarding_place->availability = $this->availability;

@@ -72,13 +72,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/"
+                            <a href="{{route('my-boarding-place')}}"
                                class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
                                :class="{'justify-center': !isSidebarOpen}">
                 <span>
-                    <i class="fa-duotone fa-comment-question"></i>
+                   <i class="fa-solid fa-house"></i>
                 </span>
-                                <span :class="{ 'lg:hidden': !isSidebarOpen }">Questions</span>
+                                <span :class="{ 'lg:hidden': !isSidebarOpen }">My Boarding</span>
                             </a>
                         </li>
                         <!-- Sidebar Links... -->

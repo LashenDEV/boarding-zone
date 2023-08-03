@@ -56,4 +56,6 @@ Route::group(['prefix' => 'client', 'middleware' => ['auth', 'is_client']], func
     Route::get('/dashboard', function () {
         return view('client.dashboard');
     })->name('client.dashboard');
+
+    Route::get('/my-boarding-place', \App\Http\Livewire\Client\MyBoardingPlace::class)->name('my-boarding-place');
 });

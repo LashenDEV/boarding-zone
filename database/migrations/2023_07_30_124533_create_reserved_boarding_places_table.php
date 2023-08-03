@@ -12,11 +12,9 @@ return new class extends Migration {
     {
         Schema::create('reserved_boarding_places', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('boarder_id');
-            $table->unsignedBigInteger('boarding_place_id');
+            $table->foreignId('boarder_id')->constrained('users');
+            $table->foreignId('boarding_place_id')->constrained('boarding_places');
             $table->timestamps();
-
-            $table->foreign('boarding_place_id')->references('id')->on('boarding_places')->onDelete('cascade');
         });
     }
 

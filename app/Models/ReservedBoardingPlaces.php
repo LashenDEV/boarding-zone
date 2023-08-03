@@ -13,4 +13,9 @@ class ReservedBoardingPlaces extends Model
         'boarder_id',
         'boarding_place_id',
     ];
+
+    public function boarders(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(User::class, 'id', 'boarder_id');
+    }
 }

@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('name');
             $table->string('thumbnail');
             $table->double('price');
+            $table->text('description');
             $table->integer('number_of_rooms');
             $table->string('target_audience');
             $table->integer('availability');
