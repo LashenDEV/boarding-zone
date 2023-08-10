@@ -46,42 +46,55 @@
         </div>
     </div>
     <div class="relative flex p-5 overflow-x-auto shadow-md sm:rounded-lg">
-        @foreach($boarding_places as $boarding_place)
-            <div class="max-w-xl m-2 justify-evenly">
-                <div
-                    class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
-                    <div class="h-[200px]">
-                        <a href="#">
-                            <img class="rounded-t-lg object-cover h-[200px] w-full"
-                                 src="{{asset('storage/' . $boarding_place->thumbnail)}}"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex justify-between">
+        @if($boarding_places)
+            @foreach($boarding_places as $boarding_place)
+                <div class="max-w-xl m-2 justify-evenly">
+                    <div
+                        class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
+                        <div class="h-[200px]">
                             <a href="#">
-                                <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">{{$boarding_place->name}}</h5>
+                                <img class="rounded-t-lg object-cover h-[200px] w-full"
+                                     src="{{asset('storage/' . $boarding_place->thumbnail)}}"
+                                     alt="">
                             </a>
-                            <span
-                                class="p-1 text-xs bg-gray-600 h-full rounded-md text-white {{$boarding_place->publish_status == "Pending" ? 'bg-gray-600' : ($boarding_place->publish_status == "Approved" ? 'bg-green-600' : 'bg-red-600' )}}">{{$boarding_place->publish_status}}</span>
                         </div>
-                        <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">{{$boarding_place->features}}</p>
-                        <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Price:
-                            Rs.{{$boarding_place->price}}/=</p>
-                        <div class="flex flex-row justify-end">
-                            <a x-on:click="editModalShow = true" wire:click="editPost({{$boarding_place->id}})"
-                               class="ml-1 cursor-pointer text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </a>
-                            <a x-on:click="deleteModalShow = true" wire:click="deletePost({{$boarding_place->id}})"
-                               class="ml-1 cursor-pointer text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                <i class="fa-duotone fa-trash"></i>
-                            </a>
+                        <div class="p-5">
+                            <div class="flex justify-between">
+                                <a href="#">
+                                    <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">{{$boarding_place->name}}</h5>
+                                </a>
+                                <span
+                                    class="p-1 text-xs bg-gray-600 h-full rounded-md text-white {{$boarding_place->publish_status == "Pending" ? 'bg-gray-600' : ($boarding_place->publish_status == "Approved" ? 'bg-green-600' : 'bg-red-600' )}}">{{$boarding_place->publish_status}}</span>
+                            </div>
+                            <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">{{$boarding_place->features}}</p>
+                            <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Price:
+                                Rs.{{$boarding_place->price}}/=</p>
+                            <div class="flex flex-row justify-end">
+                                <a x-on:click="editModalShow = true" wire:click="editPost({{$boarding_place->id}})"
+                                   class="ml-1 cursor-pointer text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a x-on:click="deleteModalShow = true" wire:click="deletePost({{$boarding_place->id}})"
+                                   class="ml-1 cursor-pointer text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    <i class="fa-duotone fa-trash"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
+            @endforeach
+        @else
+            <div class="flex flex-col justify-center items-center w-full">
+                <img class="rounded-t-lg"
+                     src="{{asset('asserts/gifs/no-data.gif')}}"
+                     alt="">
+                <h1 class="text-3xl">No Boarding House Found</h1>
+                <button x-on:click="createModalShow = true" wire:click="resetFields()"
+                        class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 my-5 rounded">
+                    Add Your Boarding Place
+                </button>
             </div>
-        @endforeach
+        @endif
 
         <div class="p-2">
             {{$boarding_places->links()}}
