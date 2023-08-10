@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'checkUserType'])->name('home');
 Route::get('/view-boarding-place/{id}', \App\Http\Livewire\ViewBoardingPlaces::class)->name('view-boarding-place');
 
+//Pages
+Route::get('/contact-us', [\App\Http\Controllers\PageController::class, 'contactUs'])->name('contact-us');
+Route::get('/about-us', [\App\Http\Controllers\PageController::class, 'aboutUs'])->name('about-us');
+Route::get('/services', [\App\Http\Controllers\PageController::class, 'services'])->name('services');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

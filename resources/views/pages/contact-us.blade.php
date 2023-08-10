@@ -1,69 +1,5 @@
 @extends('layouts.page')
 @section('main')
-    <div
-        class="relative sm:flex sm:justify-center sm:items-center min-h-screen selection:bg-red-500 selection:text-white">
-
-        <script src="//unpkg.com/alpinejs" defer></script>
-
-        <main>
-            <section class="bg-white dark:bg-gray-900">
-                <div class="container px-6 text-center">
-                    <div class="flex justify-center">
-                        <img class="h-100 w-full rounded-xl object-cover lg:w-6/5"
-                             src="{{asset('asserts/images/home/home-cover.jpg')}}"/>
-                    </div>
-                </div>
-            </section>
-            <livewire:boarding-places/>
-            <section class="bg-white dark:bg-gray-900">
-                <div class="mx-auto px-6 py-10">
-                    <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 dark:text-white lg:text-5xl">
-                        Our
-                        Key Features</h1>
-
-                    <p class="mt-4 text-center text-gray-500 dark:text-gray-300">Take a look at some of our key
-                        features</p>
-
-                    <div class="grid grid-cols-3 gap-36 p-24">
-                        <div class="flex flex-col justify-center items-center"><i
-                                class="fa-solid fa-magnifying-glass fa-5x"></i>
-                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-800 dark:text-white">Bording
-                                Finder</h2>
-                        </div>
-                        <div class="flex flex-col justify-center items-center">
-                            <i class="fa-solid fa-handshake-angle fa-5x"></i>
-                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-800 dark:text-white">Academic
-                                Support
-                                Service</h2>
-                        </div>
-                        <div class="flex flex-col justify-center items-center"><i
-                                class="fa-solid fa-solid fa-shield-halved fa-5x"></i>
-                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-800 dark:text-white">Security
-                                Service</h2>
-                        </div>
-                        <div class="flex flex-col justify-center items-center">
-                            <i class="fa-solid fa-bullhorn fa-5x"></i>
-                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-800 dark:text-white">Boarding
-                                Adverticesment</h2>
-                        </div>
-                        <div class="flex flex-col justify-center items-center">
-                            <i class="fa-solid fa-dumbbell fa-5x"></i>
-                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-800 dark:text-white">Recreational
-                                &
-                                Fitness Services</h2>
-                        </div>
-                        <div class="flex flex-col justify-center items-center">
-                            <i class="fa-solid fa-plate-utensils fa-5x"></i>
-                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-800 dark:text-white">Food
-                                Services</h2>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
-
     <section
         class="bg-gradient-to-r from-blue-600 via-blue-800 to-blue-900 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900">
         <div class="container mx-auto flex min-h-screen flex-col px-6 py-12">
@@ -196,5 +132,4 @@
             </div>
         </div>
     </section>
-
 @endsection
