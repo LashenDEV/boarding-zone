@@ -1,0 +1,45 @@
+[x-cloak]{
+    display: none;
+}
+body{
+    font-family: 'Quicksand', sans-serif;
+}
+.scroll{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+/* iOS devices */
+@supports (-webkit-overflow-scrolling: touch) {
+    .scroll {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.scroll-behavior-smooth{
+    scroll-behavior: smooth;
+}
+.snap {
+    scroll-snap-type: var(--scroll-snap-direction) var(--scroll-snap-constraint);
+}
+.snap-y {
+    --scroll-snap-direction: y;
+}
+.snap-x {
+    --scroll-snap-direction: x;
+}
+.snap-mandatory {
+    --scroll-snap-constraint: mandatory;
+}
+.snap-start {
+    scroll-snap-align: start;
+}

@@ -15,20 +15,24 @@ class BoardingPlaces extends Component
 
     public function reserve($boarding_place_id)
     {
-        $reserved_boarding_place = new ReservedBoardingPlaces();
-        $reserved_boarding_place->boarding_place_id = $boarding_place_id;
-        $reserved_boarding_place->boarder_id = Auth::user()->id;
-        $reserved_boarding_place->save();
+        if (Auth::user()) {
+            $reserved_boarding_place = new ReservedBoardingPlaces();
+            $reserved_boarding_place->boarding_place_id = $boarding_place_id;
+            $reserved_boarding_place->boarder_id = Auth::user()->id;
+            $reserved_boarding_place->save();
 
-        $boarding_place = BoardingPlace::whereId($boarding_place_id)->first();
-        $boarding_place->is_reserved = 'Yes';
-        $boarding_place->save();
+            $boarding_place = BoardingPlace::whereId($boarding_place_id)->first();
+            $boarding_place->is_reserved = 'Yes';
+            $boarding_place->save();
 
-        session()->flash('success', 'Boarding place is reserved successfully');
+            session()->flash('success', 'Boarding place is reserved successfully');
 
-        $this->reset();
+            $this->reset();
 
-        $this->dispatchBrowserEvent('flash-message', ['flashMessageShow' => true]);
+            $this->dispatchBrowserEvent('flash-message', ['flashMessageShow' => true]);
+        } else {
+            $this->redirect('/login');
+        }
     }
 
     public function render()
