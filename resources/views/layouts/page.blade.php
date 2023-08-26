@@ -12,8 +12,6 @@
 
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css">
-    <link rel="stylesheet"  type="text/css" href="../../css/styles.css">
-
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/css/styles.css', 'resources/js/app.js'])
 
@@ -79,8 +77,9 @@
            href="/"> Reserve a Place </a>
     </div>
 </nav>
-@yield('main')
-
+<main>
+    @yield('main')
+</main>
 
 <footer class="bg-white dark:bg-gray-900">
     <div class="container mx-auto px-6 py-12">
@@ -94,25 +93,24 @@
                     <a href="/"
                        class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">Home</a>
                     <a href="/"
-                       class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">About Us</a>
+                       class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">About
+                        Us</a>
                     <a href="/"
-                       class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">Contact Us</a>
+                       class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">Contact
+                        Us</a>
                 </div>
             </div>
 
             <div>
-                <p class="font-semibold text-gray-800 dark:text-white">Industries</p>
+                <p class="font-semibold text-gray-800 dark:text-white">Suppliers</p>
 
                 <div class="mt-5 flex flex-col items-start space-y-2">
                     <a href="/"
-                       class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">Retail
-                        & E-Commerce</a>
+                       class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">Arpico</a>
                     <a href="/"
-                       class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">Information
-                        Technology</a>
+                       class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">Keels</a>
                     <a href="/"
-                       class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">Finance
-                        & Insurance</a>
+                       class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">BOC</a>
                 </div>
             </div>
 
@@ -123,7 +121,8 @@
                     <a href="/"
                        class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">Security</a>
                     <a href="/"
-                       class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">Food Supply</a>
+                       class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">Food
+                        Supply</a>
                     <a href="/"
                        class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">Fitness</a>
                 </div>
@@ -134,7 +133,8 @@
 
                 <div class="mt-5 flex flex-col items-start space-y-2">
                     <a href="/"
-                       class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">+94 55 447 4978</a>
+                       class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">+94
+                        55 447 4978</a>
                     <a href="/"
                        class="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">info@boardingzone.com</a>
                 </div>
@@ -145,7 +145,8 @@
 
         <div class="flex flex-col items-center justify-between sm:flex-row">
             <a href="/"
-               class="text-2xl font-bold text-gray-800 transition-colors duration-300 hover:text-gray-700 dark:text-white dark:hover:text-gray-300">Boarding Zone</a>
+               class="text-2xl font-bold text-gray-800 transition-colors duration-300 hover:text-gray-700 dark:text-white dark:hover:text-gray-300">Boarding
+                Zone</a>
 
             <p class="mt-4 text-sm text-gray-500 dark:text-gray-300 sm:mt-0">BoardingZone © Copyright 2023. All
                 Rights
