@@ -84,7 +84,7 @@
                 </div>
             @endforeach
         @else
-            <div class="flex flex-col justify-center items-center w-full">
+            <div class="flex flex-col justify-center items-center w-full    ">
                 <img class="rounded-t-lg"
                      src="{{asset('asserts/gifs/no-data.gif')}}"
                      alt="">
@@ -95,10 +95,9 @@
                 </button>
             </div>
         @endif
-
-        <div class="p-2">
-            {{$boarding_places->links()}}
-        </div>
+    </div>
+    <div class="p-2">
+        {{$boarding_places->links()}}
     </div>
     <!-- Create, Edit, Delete Modal -->
     @include('livewire.boarding-owner.manage-boarding-places.components.model')
