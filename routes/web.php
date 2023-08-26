@@ -15,7 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'checkUserType'])->name('home');
-Route::get('/view-boarding-place/{id}', \App\Http\Livewire\ViewBoardingPlaces::class)->name('view-boarding-place');
+//Route::get('/view-boarding-place/{id}', \App\Http\Livewire\ViewBoardingPlaces::class)->name('view-boarding-place');
+Route::get('/view-boarding-place/{id}', [\App\Http\Controllers\ViewBoardingPlace::class, 'viewBoardingPlace'])->name('view-boarding-place');
+
+Route::get('/map.blade.php', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'manageMap'])->name('boarding-owner.map.blade.php');
+
+
 
 //Pages
 Route::get('/contact-us', [\App\Http\Controllers\PageController::class, 'contactUs'])->name('contact-us');
@@ -53,7 +58,6 @@ Route::group(['prefix' => 'boarding-owner', 'middleware' => ['auth', 'is_b_owner
     Route::get('/dashboard', [App\Http\Controllers\BoardingOwner\ManageDashboard::class, 'index'])->name('boarding-owner.dashboard');
     Route::get('/boarding-places', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'index'])->name('boarding-owner.boarding-house.index');
 
-    Route::get('/map.blade.php', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'manageMap'])->name('boarding-owner.map.blade.php');
 });
 
 //Routes for IsClient
@@ -63,4 +67,6 @@ Route::group(['prefix' => 'client', 'middleware' => ['auth', 'is_client']], func
     })->name('client.dashboard');
 
     Route::get('/my-boarding-place', \App\Http\Livewire\Client\MyBoardingPlace::class)->name('my-boarding-place');
+
+    Route::get('/reserve-boarding-place/{id}', [\App\Http\Controllers\ViewBoardingPlace::class, 'reserveBoardingPlace'])->name('reserve-a-boarding-place');
 });
