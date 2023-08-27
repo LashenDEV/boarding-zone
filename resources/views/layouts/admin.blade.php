@@ -81,16 +81,16 @@
                                 <span :class="{ 'lg:hidden': !isSidebarOpen }">Boarding Places</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="/"
-                               class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
-                               :class="{'justify-center': !isSidebarOpen}">
-                <span>
-                    <i class="fa-duotone fa-comment-question"></i>
-                </span>
-                                <span :class="{ 'lg:hidden': !isSidebarOpen }">Questions</span>
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="/"--}}
+{{--                               class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"--}}
+{{--                               :class="{'justify-center': !isSidebarOpen}">--}}
+{{--                <span>--}}
+{{--                    <i class="fa-duotone fa-comment-question"></i>--}}
+{{--                </span>--}}
+{{--                                <span :class="{ 'lg:hidden': !isSidebarOpen }">Questions</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         <!-- Sidebar Links... -->
                     </ul>
                 </nav>
@@ -154,81 +154,81 @@
                             </button>
                         </div>
 
-                        <!-- Mobile search box -->
-                        <div
-                            x-show.transition="isSearchBoxOpen"
-                            class="fixed inset-0 z-10 bg-black bg-opacity-20"
-                            style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"
-                        >
-                            <div
-                                @click.away="isSearchBoxOpen = false"
-                                class="absolute inset-x-0 flex items-center justify-between p-2 bg-white shadow-md"
-                            >
-                                <div class="flex items-center flex-1 px-2 space-x-2">
-                                    <!-- search icon -->
-                                    <span>
-                    <svg
-                        class="w-6 h-6 text-gray-500"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                      <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                      />
-                    </svg>
-                  </span>
-                                    <input
-                                        type="text"
-                                        placeholder="Search"
-                                        class="w-full px-4 py-3 text-gray-600 rounded-md focus:bg-gray-100 focus:outline-none"
-                                    />
-                                </div>
-                                <!-- close button -->
-                                <button @click="isSearchBoxOpen = false" class="flex-shrink-0 p-4 rounded-md">
-                                    <svg
-                                        class="w-4 h-4 text-gray-500"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                              d="M6 18L18 6M6 6l12 12"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
+{{--                        <!-- Mobile search box -->--}}
+{{--                        <div--}}
+{{--                            x-show.transition="isSearchBoxOpen"--}}
+{{--                            class="fixed inset-0 z-10 bg-black bg-opacity-20"--}}
+{{--                            style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"--}}
+{{--                        >--}}
+{{--                            <div--}}
+{{--                                @click.away="isSearchBoxOpen = false"--}}
+{{--                                class="absolute inset-x-0 flex items-center justify-between p-2 bg-white shadow-md"--}}
+{{--                            >--}}
+{{--                                <div class="flex items-center flex-1 px-2 space-x-2">--}}
+{{--                                    <!-- search icon -->--}}
+{{--                                    <span>--}}
+{{--                    <svg--}}
+{{--                        class="w-6 h-6 text-gray-500"--}}
+{{--                        xmlns="http://www.w3.org/2000/svg"--}}
+{{--                        fill="none"--}}
+{{--                        viewBox="0 0 24 24"--}}
+{{--                        stroke="currentColor"--}}
+{{--                    >--}}
+{{--                      <path--}}
+{{--                          stroke-linecap="round"--}}
+{{--                          stroke-linejoin="round"--}}
+{{--                          stroke-width="2"--}}
+{{--                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"--}}
+{{--                      />--}}
+{{--                    </svg>--}}
+{{--                  </span>--}}
+{{--                                    <input--}}
+{{--                                        type="text"--}}
+{{--                                        placeholder="Search"--}}
+{{--                                        class="w-full px-4 py-3 text-gray-600 rounded-md focus:bg-gray-100 focus:outline-none"--}}
+{{--                                    />--}}
+{{--                                </div>--}}
+{{--                                <!-- close button -->--}}
+{{--                                <button @click="isSearchBoxOpen = false" class="flex-shrink-0 p-4 rounded-md">--}}
+{{--                                    <svg--}}
+{{--                                        class="w-4 h-4 text-gray-500"--}}
+{{--                                        xmlns="http://www.w3.org/2000/svg"--}}
+{{--                                        fill="none"--}}
+{{--                                        viewBox="0 0 24 24"--}}
+{{--                                        stroke="currentColor"--}}
+{{--                                    >--}}
+{{--                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
+{{--                                              d="M6 18L18 6M6 6l12 12"/>--}}
+{{--                                    </svg>--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <!-- Desktop search box -->
-                        <div class="items-center hidden px-2 space-x-2 md:flex-1 md:flex md:mr-auto md:ml-5">
-                            <!-- search icon -->
-                            <span>
-                <svg
-                    class="w-5 h-5 text-gray-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                  <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </span>
-                            <input
-                                type="text"
-                                placeholder="Search"
-                                class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border"
-                            />
-                        </div>
+{{--                        <!-- Desktop search box -->--}}
+{{--                        <div class="items-center hidden px-2 space-x-2 md:flex-1 md:flex md:mr-auto md:ml-5">--}}
+{{--                            <!-- search icon -->--}}
+{{--                            <span>--}}
+{{--                <svg--}}
+{{--                    class="w-5 h-5 text-gray-500"--}}
+{{--                    xmlns="http://www.w3.org/2000/svg"--}}
+{{--                    fill="none"--}}
+{{--                    viewBox="0 0 24 24"--}}
+{{--                    stroke="currentColor"--}}
+{{--                >--}}
+{{--                  <path--}}
+{{--                      stroke-linecap="round"--}}
+{{--                      stroke-linejoin="round"--}}
+{{--                      stroke-width="2"--}}
+{{--                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"--}}
+{{--                  />--}}
+{{--                </svg>--}}
+{{--              </span>--}}
+{{--                            <input--}}
+{{--                                type="text"--}}
+{{--                                placeholder="Search"--}}
+{{--                                class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border"--}}
+{{--                            />--}}
+{{--                        </div>--}}
 
                         <!-- Navbar right -->
                         <div class="relative flex items-center space-x-3">
@@ -458,7 +458,7 @@
                                         class="p-1 bg-gray-200 rounded-full focus:outline-none focus:ring">
                                     <img
                                         class="object-cover w-8 h-8 rounded-full"
-                                        src="https://avatars0.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4"
+                                        src="data:image/png;base64,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"
                                         alt="Ahmed Kamel"
                                     />
                                 </button>
@@ -474,26 +474,29 @@
                                     class="absolute mt-3 transform -translate-x-full bg-white rounded-md shadow-lg min-w-max"
                                 >
                                     <div class="flex flex-col p-4 space-y-1 font-medium border-b">
-                                        <span class="text-gray-800">Ahmed Kamel</span>
-                                        <span class="text-sm text-gray-400">ahmed.kamel@example.com</span>
+                                        <span
+                                            class="text-gray-800">{{\Illuminate\Support\Facades\Auth::user()->name}}</span>
+                                        <span
+                                            class="text-sm text-gray-400">{{\Illuminate\Support\Facades\Auth::user()->email}}</span>
                                     </div>
                                     {{--                                    <ul class="flex flex-col p-2 my-2 space-y-1">--}}
                                     {{--                                        <li>--}}
                                     {{--                                            <a href="#"--}}
-                                    {{--                                               class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Link</a>--}}
+                                    {{--                                               class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Profile</a>--}}
                                     {{--                                        </li>--}}
                                     {{--                                        <li>--}}
-                                    {{--                                            <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Another--}}
-                                    {{--                                                Link</a>--}}
+                                    {{--                                            <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">My--}}
+                                    {{--                                                Boarding Places</a>--}}
                                     {{--                                        </li>--}}
                                     {{--                                    </ul>--}}
                                     <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
-                                            <a href="{{ route('logout') }}"
+                                            <a href="{{ route('logout') }}" class=""
                                                onclick="event.preventDefault(); this.closest('form').submit();">
-                                                Logout
-
+                                                <button>
+                                                    Logout
+                                                </button>
                                             </a>
                                         </form>
                                     </div>
@@ -511,7 +514,7 @@
                     <div>Boarding Zone &copy; 2023</div>
                     <div class="text-sm flex items-center">
                         Made with 💙️ by
-                        <span class="flex items-center px-2"> TEAM 07 <</span>
+                        <span class="flex items-center px-2"> TEAM 07 </span>
                     </div>
                     </div>
                     <div>
@@ -533,49 +536,49 @@
                 </footer>
             </div>
 
-            <!-- Setting panel button -->
-            <div>
-                <button
-                    @click="isSettingsPanelOpen = true"
-                    class="fixed right-0 px-4 py-2 text-sm font-medium text-white uppercase transform rotate-90 translate-x-8 bg-gray-600 top-1/2 rounded-b-md"
-                >
-                    Settings
-                </button>
-            </div>
+{{--            <!-- Setting panel button -->--}}
+{{--            <div>--}}
+{{--                <button--}}
+{{--                    @click="isSettingsPanelOpen = true"--}}
+{{--                    class="fixed right-0 px-4 py-2 text-sm font-medium text-white uppercase transform rotate-90 translate-x-8 bg-gray-600 top-1/2 rounded-b-md"--}}
+{{--                >--}}
+{{--                    Settings--}}
+{{--                </button>--}}
+{{--            </div>--}}
 
-            <!-- Settings panel -->
-            <div
-                x-show="isSettingsPanelOpen"
-                @click.away="isSettingsPanelOpen = false"
-                x-transition:enter="transition transform duration-300"
-                x-transition:enter-start="translate-x-full opacity-30  ease-in"
-                x-transition:enter-end="translate-x-0 opacity-100 ease-out"
-                x-transition:leave="transition transform duration-300"
-                x-transition:leave-start="translate-x-0 opacity-100 ease-out"
-                x-transition:leave-end="translate-x-full opacity-0 ease-in"
-                class="fixed inset-y-0 right-0 flex flex-col bg-white shadow-lg bg-opacity-20 w-80"
-                style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"
-            >
-                <div class="flex items-center justify-between flex-shrink-0 p-2">
-                    <h6 class="p-2 text-lg">Settings</h6>
-                    <button @click="isSettingsPanelOpen = false" class="p-2 rounded-md focus:outline-none focus:ring">
-                        <svg
-                            class="w-6 h-6 text-gray-600"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
-                    </button>
-                </div>
-                <div class="flex-1 max-h-full p-4 overflow-hidden hover:overflow-y-scroll">
-                    <span>Settings Content</span>
-                    <!-- Settings Panel Content ... -->
-                </div>
-            </div>
+{{--            <!-- Settings panel -->--}}
+{{--            <div--}}
+{{--                x-show="isSettingsPanelOpen"--}}
+{{--                @click.away="isSettingsPanelOpen = false"--}}
+{{--                x-transition:enter="transition transform duration-300"--}}
+{{--                x-transition:enter-start="translate-x-full opacity-30  ease-in"--}}
+{{--                x-transition:enter-end="translate-x-0 opacity-100 ease-out"--}}
+{{--                x-transition:leave="transition transform duration-300"--}}
+{{--                x-transition:leave-start="translate-x-0 opacity-100 ease-out"--}}
+{{--                x-transition:leave-end="translate-x-full opacity-0 ease-in"--}}
+{{--                class="fixed inset-y-0 right-0 flex flex-col bg-white shadow-lg bg-opacity-20 w-80"--}}
+{{--                style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"--}}
+{{--            >--}}
+{{--                <div class="flex items-center justify-between flex-shrink-0 p-2">--}}
+{{--                    <h6 class="p-2 text-lg">Settings</h6>--}}
+{{--                    <button @click="isSettingsPanelOpen = false" class="p-2 rounded-md focus:outline-none focus:ring">--}}
+{{--                        <svg--}}
+{{--                            class="w-6 h-6 text-gray-600"--}}
+{{--                            xmlns="http://www.w3.org/2000/svg"--}}
+{{--                            fill="none"--}}
+{{--                            viewBox="0 0 24 24"--}}
+{{--                            stroke="currentColor"--}}
+{{--                        >--}}
+{{--                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
+{{--                                  d="M6 18L18 6M6 6l12 12"/>--}}
+{{--                        </svg>--}}
+{{--                    </button>--}}
+{{--                </div>--}}
+{{--                <div class="flex-1 max-h-full p-4 overflow-hidden hover:overflow-y-scroll">--}}
+{{--                    <span>Settings Content</span>--}}
+{{--                    <!-- Settings Panel Content ... -->--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
     </div>
     @push('Scripts')
