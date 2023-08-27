@@ -37,7 +37,7 @@ class BoardingPlaces extends Component
 
     public function render()
     {
-        $boarding_places = BoardingPlace::where('publish_status', 'Approved')->where('is_reserved', 'No')->paginate(4);
+        $boarding_places = BoardingPlace::where('publish_status', 'Approved')->paginate(4);
         return view('livewire.boarding-places', compact('boarding_places'));
     }
 

@@ -22,8 +22,15 @@
 <nav x-data="{ isOpen: false }" class="container mx-auto p-6 lg:flex lg:items-center lg:justify-between">
     <div class="flex items-center justify-between">
         <div>
-            <a class="text-2xl font-bold text-gray-800 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 lg:text-5xl"
-               href="/">BORDING ZONE</a>
+            <!-- Logo -->
+            <div class="shrink-0 flex items-center">
+                <a href="{{ route('home') }}" class="h-20 w-20">
+                    <x-application-mark class="block"/>
+                </a>
+                <a class="text-2xl font-bold text-gray-800 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 lg:text-4xl"
+                   href="/">BORDING ZONE</a>
+            </div>
+
         </div>
 
         <!-- Mobile menu button -->
@@ -72,9 +79,6 @@
                 @endauth
             @endif
         </div>
-
-        <a class="mt-4 block rounded-lg bg-blue-600 mx-4 px-6 py-2.5 text-center font-medium capitalize leading-5 text-white hover:bg-blue-500 lg:mt-0 lg:w-auto"
-           href="/"> Reserve a Place </a>
     </div>
 </nav>
 <main>

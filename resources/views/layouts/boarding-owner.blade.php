@@ -501,15 +501,7 @@
                     <div>Boarding Zone &copy; 2023</div>
                     <div class="text-sm flex items-center">
                         Made with 💙️ by
-                        <a
-                            class="text-blue-400 underline"
-                            href="https://www.lashendev.tk"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        > <span class="flex items-center px-2"> LASH <img
-                                    src="https://lashendev.tk/images/logo.png" alt="" class="p-2" width="45"
-                                    height="45"></span></a
-                        >
+                        <span class="flex items-center px-2"> TEAM 07 <</span>
                     </div>
                     <div>
                         {{--                        <a--}}
