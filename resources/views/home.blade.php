@@ -1,60 +1,57 @@
 @extends('layouts.page')
 @section('main')
-    <div
-        class="relative sm:flex sm:justify-center sm:items-center min-h-screen selection:bg-red-500 selection:text-white">
-
-        <script src="//unpkg.com/alpinejs" defer></script>
-
         <main>
-            <section class="bg-white dark:bg-gray-900">
-                <div class="container px-6 text-center">
+            <section class="bg-white :bg-gray-900">
+                <div class="text-center">
                     <div class="flex justify-center">
-                        <img class="h-100 w-full rounded-xl object-cover lg:w-6/5"
+                        <img class="h-100 w-full object-cover lg:w-6/5"
                              src="{{asset('asserts/images/home/home-cover.jpg')}}"/>
                     </div>
                 </div>
             </section>
-            <livewire:boarding-places/>
-            <section class="bg-white dark:bg-gray-900">
+            <div class="container mx-auto">
+                <livewire:boarding-places/>
+            </div>
+            <section class="bg-white :bg-gray-900">
                 <div class="mx-auto px-6 py-10">
-                    <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 dark:text-white lg:text-5xl">
+                    <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 :text-white lg:text-5xl">
                         Our
                         Key Features</h1>
 
-                    <p class="mt-4 text-center text-gray-500 dark:text-gray-300">Take a look at some of our key
+                    <p class="mt-4 text-center text-gray-500 :text-gray-300">Take a look at some of our key
                         features</p>
 
-                    <div class="grid grid-cols-3 gap-36 p-24">
+                    <div class="grid grid-cols-3 gap-36 p-24 text-blue-500">
                         <div class="flex flex-col justify-center items-center"><i
                                 class="fa-solid fa-magnifying-glass fa-5x"></i>
-                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-800 dark:text-white">Bording
+                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white">Bording
                                 Finder</h2>
                         </div>
                         <div class="flex flex-col justify-center items-center">
                             <i class="fa-solid fa-handshake-angle fa-5x"></i>
-                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-800 dark:text-white">Academic
+                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white">Academic
                                 Support
                                 Service</h2>
                         </div>
                         <div class="flex flex-col justify-center items-center"><i
                                 class="fa-solid fa-solid fa-shield-halved fa-5x"></i>
-                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-800 dark:text-white">Security
+                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white">Security
                                 Service</h2>
                         </div>
                         <div class="flex flex-col justify-center items-center">
                             <i class="fa-solid fa-bullhorn fa-5x"></i>
-                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-800 dark:text-white">Boarding
+                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white">Boarding
                                 Adverticesment</h2>
                         </div>
                         <div class="flex flex-col justify-center items-center">
                             <i class="fa-solid fa-dumbbell fa-5x"></i>
-                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-800 dark:text-white">Recreational
+                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white">Recreational
                                 &
                                 Fitness Services</h2>
                         </div>
                         <div class="flex flex-col justify-center items-center">
                             <i class="fa-solid fa-plate-utensils fa-5x"></i>
-                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-800 dark:text-white">Food
+                            <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white">Food
                                 Services</h2>
                         </div>
 
@@ -62,10 +59,8 @@
                 </div>
             </section>
         </main>
-    </div>
-
     <section
-        class="bg-gradient-to-r from-blue-600 via-blue-800 to-blue-900 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900">
+        class="bg-gradient-to-r from-blue-600 via-blue-800 to-blue-900 :from-gray-700 :via-gray-800 :to-gray-900">
         <div class="container mx-auto flex min-h-screen flex-col px-6 py-12">
             <div class="flex-1 lg:-mx-6 lg:flex lg:items-center">
                 <div class="text-white lg:mx-6 lg:w-1/2">
@@ -160,29 +155,29 @@
 
                 <div class="mt-8 lg:mx-6 lg:w-1/2">
                     <div
-                        class="mx-auto w-full overflow-hidden rounded-xl bg-white px-8 py-10 shadow-2xl dark:bg-gray-900 lg:max-w-xl">
-                        <h1 class="text-2xl font-medium text-gray-700 dark:text-gray-200">Contact form</h1>
+                        class="mx-auto w-full overflow-hidden rounded-xl bg-white px-8 py-10 shadow-2xl :bg-gray-900 lg:max-w-xl">
+                        <h1 class="text-2xl font-medium text-gray-700 :text-gray-200">Contact form</h1>
 
                         <form class="mt-6">
                             <div class="flex-1">
-                                <label class="mb-2 block text-sm text-gray-600 dark:text-gray-200">Full
+                                <label class="mb-2 block text-sm text-gray-600 :text-gray-200">Full
                                     Name</label>
                                 <input type="text" placeholder="John Doe"
-                                       class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300"/>
+                                       class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 :border-gray-600 :bg-gray-900 :text-gray-300 :focus:border-blue-300"/>
                             </div>
 
                             <div class="mt-6 flex-1">
-                                <label class="mb-2 block text-sm text-gray-600 dark:text-gray-200">Email
+                                <label class="mb-2 block text-sm text-gray-600 :text-gray-200">Email
                                     address</label>
                                 <input type="email" placeholder="johndoe@example.com"
-                                       class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300"/>
+                                       class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 :border-gray-600 :bg-gray-900 :text-gray-300 :focus:border-blue-300"/>
                             </div>
 
                             <div class="mt-6 w-full">
                                 <label
-                                    class="mb-2 block text-sm text-gray-600 dark:text-gray-200">Message</label>
+                                    class="mb-2 block text-sm text-gray-600 :text-gray-200">Message</label>
                                 <textarea
-                                    class="mt-2 block h-32 w-full rounded-md border border-gray-200 bg-white px-5 py-3 text-gray-700 placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300 md:h-48"
+                                    class="mt-2 block h-32 w-full rounded-md border border-gray-200 bg-white px-5 py-3 text-gray-700 placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 :border-gray-600 :bg-gray-900 :text-gray-300 :focus:border-blue-300 md:h-48"
                                     placeholder="Message"></textarea>
                             </div>
 

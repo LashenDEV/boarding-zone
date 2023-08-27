@@ -81,6 +81,16 @@
                                 <span :class="{ 'lg:hidden': !isSidebarOpen }">My Boarding</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('client.map') }}"
+                               class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
+                               :class="{'justify-center': !isSidebarOpen}">
+                <span>
+                   <i class="fa-solid fa-map-pin"></i>
+                </span>
+                                <span :class="{ 'lg:hidden': !isSidebarOpen }">Map</span>
+                            </a>
+                        </li>
                         <!-- Sidebar Links... -->
                     </ul>
                 </nav>
@@ -143,80 +153,80 @@
                         </div>
 
                         <!-- Mobile search box -->
-                        <div
-                            x-show.transition="isSearchBoxOpen"
-                            class="fixed inset-0 z-10 bg-black bg-opacity-20"
-                            style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"
-                        >
-                            <div
-                                @click.away="isSearchBoxOpen = false"
-                                class="absolute inset-x-0 flex items-center justify-between p-2 bg-white shadow-md"
-                            >
-                                <div class="flex items-center flex-1 px-2 space-x-2">
-                                    <!-- search icon -->
-                                    <span>
-                    <svg
-                        class="w-6 h-6 text-gray-500"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                      <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                      />
-                    </svg>
-                  </span>
-                                    <input
-                                        type="text"
-                                        placeholder="Search"
-                                        class="w-full px-4 py-3 text-gray-600 rounded-md focus:bg-gray-100 focus:outline-none"
-                                    />
-                                </div>
-                                <!-- close button -->
-                                <button @click="isSearchBoxOpen = false" class="flex-shrink-0 p-4 rounded-md">
-                                    <svg
-                                        class="w-4 h-4 text-gray-500"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                              d="M6 18L18 6M6 6l12 12"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
+                        {{--                        <div--}}
+                        {{--                            x-show.transition="isSearchBoxOpen"--}}
+                        {{--                            class="fixed inset-0 z-10 bg-black bg-opacity-20"--}}
+                        {{--                            style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"--}}
+                        {{--                        >--}}
+                        {{--                            <div--}}
+                        {{--                                @click.away="isSearchBoxOpen = false"--}}
+                        {{--                                class="absolute inset-x-0 flex items-center justify-between p-2 bg-white shadow-md"--}}
+                        {{--                            >--}}
+                        {{--                                <div class="flex items-center flex-1 px-2 space-x-2">--}}
+                        {{--                                    <!-- search icon -->--}}
+                        {{--                                    <span>--}}
+                        {{--                    <svg--}}
+                        {{--                        class="w-6 h-6 text-gray-500"--}}
+                        {{--                        xmlns="http://www.w3.org/2000/svg"--}}
+                        {{--                        fill="none"--}}
+                        {{--                        viewBox="0 0 24 24"--}}
+                        {{--                        stroke="currentColor"--}}
+                        {{--                    >--}}
+                        {{--                      <path--}}
+                        {{--                          stroke-linecap="round"--}}
+                        {{--                          stroke-linejoin="round"--}}
+                        {{--                          stroke-width="2"--}}
+                        {{--                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"--}}
+                        {{--                      />--}}
+                        {{--                    </svg>--}}
+                        {{--                  </span>--}}
+                        {{--                                    <input--}}
+                        {{--                                        type="text"--}}
+                        {{--                                        placeholder="Search"--}}
+                        {{--                                        class="w-full px-4 py-3 text-gray-600 rounded-md focus:bg-gray-100 focus:outline-none"--}}
+                        {{--                                    />--}}
+                        {{--                                </div>--}}
+                        {{--                                <!-- close button -->--}}
+                        {{--                                <button @click="isSearchBoxOpen = false" class="flex-shrink-0 p-4 rounded-md">--}}
+                        {{--                                    <svg--}}
+                        {{--                                        class="w-4 h-4 text-gray-500"--}}
+                        {{--                                        xmlns="http://www.w3.org/2000/svg"--}}
+                        {{--                                        fill="none"--}}
+                        {{--                                        viewBox="0 0 24 24"--}}
+                        {{--                                        stroke="currentColor"--}}
+                        {{--                                    >--}}
+                        {{--                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
+                        {{--                                              d="M6 18L18 6M6 6l12 12"/>--}}
+                        {{--                                    </svg>--}}
+                        {{--                                </button>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
 
-                        <!-- Desktop search box -->
-                        <div class="items-center hidden px-2 space-x-2 md:flex-1 md:flex md:mr-auto md:ml-5">
-                            <!-- search icon -->
-                            <span>
-                <svg
-                    class="w-5 h-5 text-gray-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                  <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </span>
-                            <input
-                                type="text"
-                                placeholder="Search"
-                                class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border"
-                            />
-                        </div>
+                        {{--                        <!-- Desktop search box -->--}}
+                        {{--                        <div class="items-center hidden px-2 space-x-2 md:flex-1 md:flex md:mr-auto md:ml-5">--}}
+                        {{--                            <!-- search icon -->--}}
+                        {{--                            <span>--}}
+                        {{--                <svg--}}
+                        {{--                    class="w-5 h-5 text-gray-500"--}}
+                        {{--                    xmlns="http://www.w3.org/2000/svg"--}}
+                        {{--                    fill="none"--}}
+                        {{--                    viewBox="0 0 24 24"--}}
+                        {{--                    stroke="currentColor"--}}
+                        {{--                >--}}
+                        {{--                  <path--}}
+                        {{--                      stroke-linecap="round"--}}
+                        {{--                      stroke-linejoin="round"--}}
+                        {{--                      stroke-width="2"--}}
+                        {{--                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"--}}
+                        {{--                  />--}}
+                        {{--                </svg>--}}
+                        {{--              </span>--}}
+                        {{--                            <input--}}
+                        {{--                                type="text"--}}
+                        {{--                                placeholder="Search"--}}
+                        {{--                                class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border"--}}
+                        {{--                            />--}}
+                        {{--                        </div>--}}
 
                         <!-- Navbar right -->
                         <div class="relative flex items-center space-x-3">
@@ -241,204 +251,204 @@
                                 </svg>
                             </button>
 
-{{--                            <div class="items-center hidden space-x-3 md:flex">--}}
-{{--                                <!-- Notification Button -->--}}
-{{--                                <div class="relative" x-data="{ isOpen: false }">--}}
-{{--                                    <!-- red dot -->--}}
-{{--                                    <div class="absolute right-0 p-1 bg-red-400 rounded-full animate-ping"></div>--}}
-{{--                                    <div class="absolute right-0 p-1 bg-red-400 border rounded-full"></div>--}}
-{{--                                    <button--}}
-{{--                                        @click="isOpen = !isOpen"--}}
-{{--                                        class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring"--}}
-{{--                                    >--}}
-{{--                                        <svg--}}
-{{--                                            class="w-6 h-6 text-gray-500"--}}
-{{--                                            xmlns="http://www.w3.org/2000/svg"--}}
-{{--                                            fill="none"--}}
-{{--                                            viewBox="0 0 24 24"--}}
-{{--                                            stroke="currentColor"--}}
-{{--                                        >--}}
-{{--                                            <path--}}
-{{--                                                stroke-linecap="round"--}}
-{{--                                                stroke-linejoin="round"--}}
-{{--                                                stroke-width="2"--}}
-{{--                                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"--}}
-{{--                                            />--}}
-{{--                                        </svg>--}}
-{{--                                    </button>--}}
+                            {{--                            <div class="items-center hidden space-x-3 md:flex">--}}
+                            {{--                                <!-- Notification Button -->--}}
+                            {{--                                <div class="relative" x-data="{ isOpen: false }">--}}
+                            {{--                                    <!-- red dot -->--}}
+                            {{--                                    <div class="absolute right-0 p-1 bg-red-400 rounded-full animate-ping"></div>--}}
+                            {{--                                    <div class="absolute right-0 p-1 bg-red-400 border rounded-full"></div>--}}
+                            {{--                                    <button--}}
+                            {{--                                        @click="isOpen = !isOpen"--}}
+                            {{--                                        class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring"--}}
+                            {{--                                    >--}}
+                            {{--                                        <svg--}}
+                            {{--                                            class="w-6 h-6 text-gray-500"--}}
+                            {{--                                            xmlns="http://www.w3.org/2000/svg"--}}
+                            {{--                                            fill="none"--}}
+                            {{--                                            viewBox="0 0 24 24"--}}
+                            {{--                                            stroke="currentColor"--}}
+                            {{--                                        >--}}
+                            {{--                                            <path--}}
+                            {{--                                                stroke-linecap="round"--}}
+                            {{--                                                stroke-linejoin="round"--}}
+                            {{--                                                stroke-width="2"--}}
+                            {{--                                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"--}}
+                            {{--                                            />--}}
+                            {{--                                        </svg>--}}
+                            {{--                                    </button>--}}
 
-{{--                                    <!-- Dropdown card -->--}}
-{{--                                    <div--}}
-{{--                                        @click.away="isOpen = false"--}}
-{{--                                        x-show.transition.opacity="isOpen"--}}
-{{--                                        class="absolute w-48 max-w-md mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max"--}}
-{{--                                    >--}}
-{{--                                        <div class="p-4 font-medium border-b">--}}
-{{--                                            <span class="text-gray-800">Notification</span>--}}
-{{--                                        </div>--}}
-{{--                                        <ul class="flex flex-col p-2 my-2 space-y-1">--}}
-{{--                                            <li>--}}
-{{--                                                <a href="#"--}}
-{{--                                                   class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Link</a>--}}
-{{--                                            </li>--}}
-{{--                                            <li>--}}
-{{--                                                <a href="#"--}}
-{{--                                                   class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Another--}}
-{{--                                                    Link</a>--}}
-{{--                                            </li>--}}
-{{--                                        </ul>--}}
-{{--                                        <div--}}
-{{--                                            class="flex items-center justify-center p-4 text-blue-700 underline border-t">--}}
-{{--                                            <a href="#">See All</a>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                            {{--                                    <!-- Dropdown card -->--}}
+                            {{--                                    <div--}}
+                            {{--                                        @click.away="isOpen = false"--}}
+                            {{--                                        x-show.transition.opacity="isOpen"--}}
+                            {{--                                        class="absolute w-48 max-w-md mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max"--}}
+                            {{--                                    >--}}
+                            {{--                                        <div class="p-4 font-medium border-b">--}}
+                            {{--                                            <span class="text-gray-800">Notification</span>--}}
+                            {{--                                        </div>--}}
+                            {{--                                        <ul class="flex flex-col p-2 my-2 space-y-1">--}}
+                            {{--                                            <li>--}}
+                            {{--                                                <a href="#"--}}
+                            {{--                                                   class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Link</a>--}}
+                            {{--                                            </li>--}}
+                            {{--                                            <li>--}}
+                            {{--                                                <a href="#"--}}
+                            {{--                                                   class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Another--}}
+                            {{--                                                    Link</a>--}}
+                            {{--                                            </li>--}}
+                            {{--                                        </ul>--}}
+                            {{--                                        <div--}}
+                            {{--                                            class="flex items-center justify-center p-4 text-blue-700 underline border-t">--}}
+                            {{--                                            <a href="#">See All</a>--}}
+                            {{--                                        </div>--}}
+                            {{--                                    </div>--}}
+                            {{--                                </div>--}}
 
-{{--                                <!-- Services Button -->--}}
-{{--                                <div x-data="{ isOpen: false }">--}}
-{{--                                    <button--}}
-{{--                                        @click="isOpen = !isOpen"--}}
-{{--                                        class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring"--}}
-{{--                                    >--}}
-{{--                                        <svg--}}
-{{--                                            class="w-6 h-6 text-gray-500"--}}
-{{--                                            xmlns="http://www.w3.org/2000/svg"--}}
-{{--                                            fill="none"--}}
-{{--                                            viewBox="0 0 24 24"--}}
-{{--                                            stroke="currentColor"--}}
-{{--                                        >--}}
-{{--                                            <path--}}
-{{--                                                stroke-linecap="round"--}}
-{{--                                                stroke-linejoin="round"--}}
-{{--                                                stroke-width="2"--}}
-{{--                                                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"--}}
-{{--                                            />--}}
-{{--                                        </svg>--}}
-{{--                                    </button>--}}
+                            {{--                                <!-- Services Button -->--}}
+                            {{--                                <div x-data="{ isOpen: false }">--}}
+                            {{--                                    <button--}}
+                            {{--                                        @click="isOpen = !isOpen"--}}
+                            {{--                                        class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring"--}}
+                            {{--                                    >--}}
+                            {{--                                        <svg--}}
+                            {{--                                            class="w-6 h-6 text-gray-500"--}}
+                            {{--                                            xmlns="http://www.w3.org/2000/svg"--}}
+                            {{--                                            fill="none"--}}
+                            {{--                                            viewBox="0 0 24 24"--}}
+                            {{--                                            stroke="currentColor"--}}
+                            {{--                                        >--}}
+                            {{--                                            <path--}}
+                            {{--                                                stroke-linecap="round"--}}
+                            {{--                                                stroke-linejoin="round"--}}
+                            {{--                                                stroke-width="2"--}}
+                            {{--                                                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"--}}
+                            {{--                                            />--}}
+                            {{--                                        </svg>--}}
+                            {{--                                    </button>--}}
 
-{{--                                    <!-- Dropdown -->--}}
-{{--                                    <div--}}
-{{--                                        @click.away="isOpen = false"--}}
-{{--                                        @keydown.escape="isOpen = false"--}}
-{{--                                        x-show.transition.opacity="isOpen"--}}
-{{--                                        class="absolute mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max"--}}
-{{--                                    >--}}
-{{--                                        <div class="p-4 text-lg font-medium border-b">Web apps & services</div>--}}
-{{--                                        <ul class="flex flex-col p-2 my-3 space-y-3">--}}
-{{--                                            <li>--}}
-{{--                                                <a href="#"--}}
-{{--                                                   class="flex items-start px-2 py-1 space-x-2 rounded-md hover:bg-gray-100">--}}
-{{--                          <span class="block mt-1">--}}
-{{--                            <svg--}}
-{{--                                class="w-6 h-6 text-gray-500"--}}
-{{--                                xmlns="http://www.w3.org/2000/svg"--}}
-{{--                                fill="none"--}}
-{{--                                viewBox="0 0 24 24"--}}
-{{--                                stroke="currentColor"--}}
-{{--                            >--}}
-{{--                              <path fill="#fff" d="M12 14l9-5-9-5-9 5 9 5z"/>--}}
-{{--                              <path--}}
-{{--                                  fill="#fff"--}}
-{{--                                  d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"--}}
-{{--                              />--}}
-{{--                              <path--}}
-{{--                                  stroke-linecap="round"--}}
-{{--                                  stroke-linejoin="round"--}}
-{{--                                  stroke-width="2"--}}
-{{--                                  d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"--}}
-{{--                              />--}}
-{{--                            </svg>--}}
-{{--                          </span>--}}
-{{--                                                    <span class="flex flex-col">--}}
-{{--                            <span class="text-lg">Atlassian</span>--}}
-{{--                            <span class="text-sm text-gray-400">Lorem ipsum dolor sit.</span>--}}
-{{--                          </span>--}}
-{{--                                                </a>--}}
-{{--                                            </li>--}}
-{{--                                            <li>--}}
-{{--                                                <a href="#"--}}
-{{--                                                   class="flex items-start px-2 py-1 space-x-2 rounded-md hover:bg-gray-100">--}}
-{{--                          <span class="block mt-1">--}}
-{{--                            <svg--}}
-{{--                                class="w-6 h-6 text-gray-500"--}}
-{{--                                xmlns="http://www.w3.org/2000/svg"--}}
-{{--                                fill="none"--}}
-{{--                                viewBox="0 0 24 24"--}}
-{{--                                stroke="currentColor"--}}
-{{--                            >--}}
-{{--                              <path--}}
-{{--                                  stroke-linecap="round"--}}
-{{--                                  stroke-linejoin="round"--}}
-{{--                                  stroke-width="2"--}}
-{{--                                  d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"--}}
-{{--                              />--}}
-{{--                            </svg>--}}
-{{--                          </span>--}}
-{{--                                                    <span class="flex flex-col">--}}
-{{--                            <span class="text-lg">Slack</span>--}}
-{{--                            <span class="text-sm text-gray-400"--}}
-{{--                            >Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span--}}
-{{--                            >--}}
-{{--                          </span>--}}
-{{--                                                </a>--}}
-{{--                                            </li>--}}
-{{--                                        </ul>--}}
-{{--                                        <div--}}
-{{--                                            class="flex items-center justify-center p-4 text-blue-700 underline border-t">--}}
-{{--                                            <a href="#">Show all apps</a>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                            {{--                                    <!-- Dropdown -->--}}
+                            {{--                                    <div--}}
+                            {{--                                        @click.away="isOpen = false"--}}
+                            {{--                                        @keydown.escape="isOpen = false"--}}
+                            {{--                                        x-show.transition.opacity="isOpen"--}}
+                            {{--                                        class="absolute mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max"--}}
+                            {{--                                    >--}}
+                            {{--                                        <div class="p-4 text-lg font-medium border-b">Web apps & services</div>--}}
+                            {{--                                        <ul class="flex flex-col p-2 my-3 space-y-3">--}}
+                            {{--                                            <li>--}}
+                            {{--                                                <a href="#"--}}
+                            {{--                                                   class="flex items-start px-2 py-1 space-x-2 rounded-md hover:bg-gray-100">--}}
+                            {{--                          <span class="block mt-1">--}}
+                            {{--                            <svg--}}
+                            {{--                                class="w-6 h-6 text-gray-500"--}}
+                            {{--                                xmlns="http://www.w3.org/2000/svg"--}}
+                            {{--                                fill="none"--}}
+                            {{--                                viewBox="0 0 24 24"--}}
+                            {{--                                stroke="currentColor"--}}
+                            {{--                            >--}}
+                            {{--                              <path fill="#fff" d="M12 14l9-5-9-5-9 5 9 5z"/>--}}
+                            {{--                              <path--}}
+                            {{--                                  fill="#fff"--}}
+                            {{--                                  d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"--}}
+                            {{--                              />--}}
+                            {{--                              <path--}}
+                            {{--                                  stroke-linecap="round"--}}
+                            {{--                                  stroke-linejoin="round"--}}
+                            {{--                                  stroke-width="2"--}}
+                            {{--                                  d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"--}}
+                            {{--                              />--}}
+                            {{--                            </svg>--}}
+                            {{--                          </span>--}}
+                            {{--                                                    <span class="flex flex-col">--}}
+                            {{--                            <span class="text-lg">Atlassian</span>--}}
+                            {{--                            <span class="text-sm text-gray-400">Lorem ipsum dolor sit.</span>--}}
+                            {{--                          </span>--}}
+                            {{--                                                </a>--}}
+                            {{--                                            </li>--}}
+                            {{--                                            <li>--}}
+                            {{--                                                <a href="#"--}}
+                            {{--                                                   class="flex items-start px-2 py-1 space-x-2 rounded-md hover:bg-gray-100">--}}
+                            {{--                          <span class="block mt-1">--}}
+                            {{--                            <svg--}}
+                            {{--                                class="w-6 h-6 text-gray-500"--}}
+                            {{--                                xmlns="http://www.w3.org/2000/svg"--}}
+                            {{--                                fill="none"--}}
+                            {{--                                viewBox="0 0 24 24"--}}
+                            {{--                                stroke="currentColor"--}}
+                            {{--                            >--}}
+                            {{--                              <path--}}
+                            {{--                                  stroke-linecap="round"--}}
+                            {{--                                  stroke-linejoin="round"--}}
+                            {{--                                  stroke-width="2"--}}
+                            {{--                                  d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"--}}
+                            {{--                              />--}}
+                            {{--                            </svg>--}}
+                            {{--                          </span>--}}
+                            {{--                                                    <span class="flex flex-col">--}}
+                            {{--                            <span class="text-lg">Slack</span>--}}
+                            {{--                            <span class="text-sm text-gray-400"--}}
+                            {{--                            >Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span--}}
+                            {{--                            >--}}
+                            {{--                          </span>--}}
+                            {{--                                                </a>--}}
+                            {{--                                            </li>--}}
+                            {{--                                        </ul>--}}
+                            {{--                                        <div--}}
+                            {{--                                            class="flex items-center justify-center p-4 text-blue-700 underline border-t">--}}
+                            {{--                                            <a href="#">Show all apps</a>--}}
+                            {{--                                        </div>--}}
+                            {{--                                    </div>--}}
+                            {{--                                </div>--}}
 
-{{--                                <!-- Options Button -->--}}
-{{--                                <div class="relative" x-data="{ isOpen: false }">--}}
-{{--                                    <button--}}
-{{--                                        @click="isOpen = !isOpen"--}}
-{{--                                        class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring"--}}
-{{--                                    >--}}
-{{--                                        <svg--}}
-{{--                                            class="w-6 h-6 text-gray-500"--}}
-{{--                                            xmlns="http://www.w3.org/2000/svg"--}}
-{{--                                            fill="none"--}}
-{{--                                            viewBox="0 0 24 24"--}}
-{{--                                            stroke="currentColor"--}}
-{{--                                        >--}}
-{{--                                            <path--}}
-{{--                                                stroke-linecap="round"--}}
-{{--                                                stroke-linejoin="round"--}}
-{{--                                                stroke-width="2"--}}
-{{--                                                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"--}}
-{{--                                            />--}}
-{{--                                        </svg>--}}
-{{--                                    </button>--}}
+                            {{--                                <!-- Options Button -->--}}
+                            {{--                                <div class="relative" x-data="{ isOpen: false }">--}}
+                            {{--                                    <button--}}
+                            {{--                                        @click="isOpen = !isOpen"--}}
+                            {{--                                        class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring"--}}
+                            {{--                                    >--}}
+                            {{--                                        <svg--}}
+                            {{--                                            class="w-6 h-6 text-gray-500"--}}
+                            {{--                                            xmlns="http://www.w3.org/2000/svg"--}}
+                            {{--                                            fill="none"--}}
+                            {{--                                            viewBox="0 0 24 24"--}}
+                            {{--                                            stroke="currentColor"--}}
+                            {{--                                        >--}}
+                            {{--                                            <path--}}
+                            {{--                                                stroke-linecap="round"--}}
+                            {{--                                                stroke-linejoin="round"--}}
+                            {{--                                                stroke-width="2"--}}
+                            {{--                                                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"--}}
+                            {{--                                            />--}}
+                            {{--                                        </svg>--}}
+                            {{--                                    </button>--}}
 
-{{--                                    <!-- Dropdown card -->--}}
-{{--                                    <div--}}
-{{--                                        @click.away="isOpen = false"--}}
-{{--                                        x-show.transition.opacity="isOpen"--}}
-{{--                                        class="absolute w-40 max-w-sm mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max"--}}
-{{--                                    >--}}
-{{--                                        <div class="p-4 font-medium border-b">--}}
-{{--                                            <span class="text-gray-800">Options</span>--}}
-{{--                                        </div>--}}
-{{--                                        <ul class="flex flex-col p-2 my-2 space-y-1">--}}
-{{--                                            <li>--}}
-{{--                                                <a href="#"--}}
-{{--                                                   class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Link</a>--}}
-{{--                                            </li>--}}
-{{--                                            <li>--}}
-{{--                                                <a href="#"--}}
-{{--                                                   class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Another--}}
-{{--                                                    Link</a>--}}
-{{--                                            </li>--}}
-{{--                                        </ul>--}}
-{{--                                        <div--}}
-{{--                                            class="flex items-center justify-center p-4 text-blue-700 underline border-t">--}}
-{{--                                            <a href="#">See All</a>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                            {{--                                    <!-- Dropdown card -->--}}
+                            {{--                                    <div--}}
+                            {{--                                        @click.away="isOpen = false"--}}
+                            {{--                                        x-show.transition.opacity="isOpen"--}}
+                            {{--                                        class="absolute w-40 max-w-sm mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max"--}}
+                            {{--                                    >--}}
+                            {{--                                        <div class="p-4 font-medium border-b">--}}
+                            {{--                                            <span class="text-gray-800">Options</span>--}}
+                            {{--                                        </div>--}}
+                            {{--                                        <ul class="flex flex-col p-2 my-2 space-y-1">--}}
+                            {{--                                            <li>--}}
+                            {{--                                                <a href="#"--}}
+                            {{--                                                   class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Link</a>--}}
+                            {{--                                            </li>--}}
+                            {{--                                            <li>--}}
+                            {{--                                                <a href="#"--}}
+                            {{--                                                   class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Another--}}
+                            {{--                                                    Link</a>--}}
+                            {{--                                            </li>--}}
+                            {{--                                        </ul>--}}
+                            {{--                                        <div--}}
+                            {{--                                            class="flex items-center justify-center p-4 text-blue-700 underline border-t">--}}
+                            {{--                                            <a href="#">See All</a>--}}
+                            {{--                                        </div>--}}
+                            {{--                                    </div>--}}
+                            {{--                                </div>--}}
+                            {{--                            </div>--}}
 
                             <!-- avatar button -->
                             <div class="relative" x-data="{ isOpen: false }">
@@ -446,8 +456,8 @@
                                         class="p-1 bg-gray-200 rounded-full focus:outline-none focus:ring">
                                     <img
                                         class="object-cover w-8 h-8 rounded-full"
-                                        src="https://avatars0.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4"
-                                        alt="Ahmed Kamel"
+                                        src="data:image/png;base64,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"
+                                        alt="User"
                                     />
                                 </button>
                                 <!-- green dot -->
@@ -459,11 +469,13 @@
                                 <div
                                     @click.away="isOpen = false"
                                     x-show.transition.opacity="isOpen"
-                                    class="absolute mt-3 transform -translate-x-full bg-white rounded-md shadow-lg min-w-max"
+                                    class="absolute mt-3 transform -translate-x-full bg-white rounded-md shadow-lg min-w-max z-40"
                                 >
                                     <div class="flex flex-col p-4 space-y-1 font-medium border-b">
-                                        <span class="text-gray-800">Ahmed Kamel</span>
-                                        <span class="text-sm text-gray-400">ahmed.kamel@example.com</span>
+                                        <span
+                                            class="text-gray-800">{{\Illuminate\Support\Facades\Auth::user()->name}}</span>
+                                        <span
+                                            class="text-sm text-gray-400">{{\Illuminate\Support\Facades\Auth::user()->email}}</span>
                                     </div>
                                     {{--                                    <ul class="flex flex-col p-2 my-2 space-y-1">--}}
                                     {{--                                        <li>--}}
@@ -478,10 +490,11 @@
                                     <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
-                                            <a href="{{ route('logout') }}"
+                                            <a href="{{ route('logout') }}" class=""
                                                onclick="event.preventDefault(); this.closest('form').submit();">
-                                                Logout
-
+                                                <button>
+                                                    Logout
+                                                </button>
                                             </a>
                                         </form>
                                     </div>
@@ -496,18 +509,10 @@
                 </main>
                 <!-- Main footer -->
                 <footer class="flex items-center justify-between flex-shrink-0 p-4 border-t max-h-14">
-                    <div>CodeMastery &copy; 2023</div>
+                    <div>Boarding Zone &copy; 2023</div>
                     <div class="text-sm flex items-center">
                         Made with 💙️ by
-                        <a
-                            class="text-blue-400 underline"
-                            href="https://www.lashendev.tk"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        > <span class="flex items-center px-2"> LASH <img
-                                    src="https://lashendev.tk/images/logo.png" alt="" class="p-2" width="45"
-                                    height="45"></span></a
-                        >
+                        <span class="flex items-center px-2"> TEAM 07 <</span>
                     </div>
                     <div>
                         {{--                        <a--}}

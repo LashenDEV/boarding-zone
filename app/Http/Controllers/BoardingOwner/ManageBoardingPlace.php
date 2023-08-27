@@ -18,4 +18,10 @@ class ManageBoardingPlace extends Controller
         $locations = BoardingPlace::select('name', 'latitude', 'longitude')->get()->toArray();
         return view('boarding-owner.map', compact('locations'));
     }
+
+    public function manageMapForClient()
+    {
+        $locations = BoardingPlace::select('name', 'latitude', 'longitude')->get()->toArray();
+        return view('client.map', compact('locations'));
+    }
 }
