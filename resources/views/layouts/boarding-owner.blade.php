@@ -91,6 +91,16 @@
                                 <span :class="{ 'lg:hidden': !isSidebarOpen }">Map</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('boarding-owner.payments') }}"
+                               class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
+                               :class="{'justify-center': !isSidebarOpen}">
+                <span>
+                   <i class="fa-solid fa-dollar-sign"></i>
+                </span>
+                                <span :class="{ 'lg:hidden': !isSidebarOpen }">Payments</span>
+                            </a>
+                        </li>
                         <!-- Sidebar Links... -->
                     </ul>
                 </nav>

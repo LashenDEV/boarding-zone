@@ -51,6 +51,11 @@ Route::group(['prefix' => 'boarding-owner', 'middleware' => ['auth', 'is_b_owner
     Route::get('/boarding-places', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'index'])->name('boarding-owner.boarding-house.index');
 
     Route::get('/map.blade.php', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'manageMap'])->name('boarding-owner.map');
+
+    //Payments
+    Route::get('/payments', [App\Http\Controllers\BoardingOwner\ManagePayments::class, 'payments'])->name('boarding-owner.payments');
+    Route::get('/payments/approval/{id}', [App\Http\Controllers\BoardingOwner\ManagePayments::class, 'paymentApproval'])->name('boarding-owner.payment.approval');
+    Route::get('/payments/rejection/{id}', [App\Http\Controllers\BoardingOwner\ManagePayments::class, 'paymentRejection'])->name('boarding-owner.payment.reject');
 });
 
 //Routes for IsClient

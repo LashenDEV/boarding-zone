@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.super-admin')
 @section('main')
     <!-- Main content header -->
     {{--    <div--}}
