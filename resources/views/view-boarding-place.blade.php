@@ -120,7 +120,6 @@
                         </button>
                     </a>
                 </div>
-
             </div>
 
             <script>
@@ -405,6 +404,9 @@
                 );
 
             </script>
+        </div>
+        <div class="w-80">
+            <livewire:boarding-reviews/>
         </div>
     </div>
 @endsection

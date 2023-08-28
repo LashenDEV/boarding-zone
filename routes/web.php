@@ -33,9 +33,7 @@ Route::middleware([
 
 //Routes for Super Admin
 Route::group(['prefix' => 'super-admin', 'middleware' => ['auth', 'is_s_admin']], function () {
-    Route::get('/dashboard', function () {
-        return view('super-admin.dashboard');
-    })->name('super-admin.dashboard');
+    Route::get('/dashboard', [App\Http\Controllers\SuperAdmin\ManageDashboard::class, 'index'])->name('super-admin.dashboard');
 
     Route::get('/boarding-places', [App\Http\Controllers\SuperAdmin\ManageBoardingPlace::class, 'index'])->name('super-admin.boarding-house.index');
 });
@@ -53,6 +51,11 @@ Route::group(['prefix' => 'boarding-owner', 'middleware' => ['auth', 'is_b_owner
     Route::get('/boarding-places', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'index'])->name('boarding-owner.boarding-house.index');
 
     Route::get('/map.blade.php', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'manageMap'])->name('boarding-owner.map');
+
+    //Payments
+    Route::get('/payments', [App\Http\Controllers\BoardingOwner\ManagePayments::class, 'payments'])->name('boarding-owner.payments');
+    Route::get('/payments/approval/{id}', [App\Http\Controllers\BoardingOwner\ManagePayments::class, 'paymentApproval'])->name('boarding-owner.payment.approval');
+    Route::get('/payments/rejection/{id}', [App\Http\Controllers\BoardingOwner\ManagePayments::class, 'paymentRejection'])->name('boarding-owner.payment.reject');
 });
 
 //Routes for IsClient
@@ -62,4 +65,8 @@ Route::group(['prefix' => 'client', 'middleware' => ['auth', 'is_client']], func
     Route::get('/reserve-boarding-place/{id}', [\App\Http\Controllers\ViewBoardingPlace::class, 'reserveBoardingPlace'])->name('reserve-a-boarding-place');
 
     Route::get('/map', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'manageMapForClient'])->name('client.map');
+
+    //Payments
+    Route::get('/payments', [App\Http\Controllers\Client\ManagePayments::class, 'payments'])->name('client.payments');
+    Route::post('/payments/store', [App\Http\Controllers\Client\ManagePayments::class, 'storePayment'])->name('client.payment.store');
 });
