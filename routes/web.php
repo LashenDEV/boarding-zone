@@ -60,4 +60,8 @@ Route::group(['prefix' => 'client', 'middleware' => ['auth', 'is_client']], func
     Route::get('/reserve-boarding-place/{id}', [\App\Http\Controllers\ViewBoardingPlace::class, 'reserveBoardingPlace'])->name('reserve-a-boarding-place');
 
     Route::get('/map', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'manageMapForClient'])->name('client.map');
+
+    //Payments
+    Route::get('/payments', [App\Http\Controllers\Client\ManagePayments::class, 'payments'])->name('client.payments');
+    Route::post('/payments/store', [App\Http\Controllers\Client\ManagePayments::class, 'storePayment'])->name('client.payment.store');
 });
