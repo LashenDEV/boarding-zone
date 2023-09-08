@@ -1,11 +1,9 @@
 @extends('layouts.page')
 @section('main')
-    <div class="pt-32">
+    <div class="pt-20 bg-white dark:bg-gray-300">
         <div class="container mx-auto px-auto">
             @if( Session::has( 'message' ))
-                <div
-                    class="w-100 flex justify-between shadow-inner rounded p-3 bg-green-200"
-                >
+                <div class="w-100 flex justify-between shadow-inner rounded p-3 bg-green-200">
                     <p class="self-center">
                         {{Session::get('message')}}
                     </p>
@@ -43,7 +41,7 @@
                     </ul>
                     <div class="m-auto max-w-full">
                         <div class="flex" x-show="images.length>1" x-cloak>
-                            <a class="h-28 flex-grow-0 text-indigo-600 inline-flex items-center text-xl bg-white p-4"
+                            <a class="h-20 flex-grow-0 text-indigo-600 inline-flex items-center text-xl bg-gray-300 p-4"
                                href="#" @click.prevent="prevImage">
                                 <i class="fas fa-arrow-left"></i>
                             </a>
@@ -57,7 +55,7 @@
                                     </li>
                                 </template>
                             </ul>
-                            <a class="h-28 flex-grow-0 inline-flex items-center text-xl text-indigo-600 bg-white p-4"
+                            <a class="h-20 flex-grow-0 inline-flex items-center text-xl text-indigo-600 bg-gray-300 p-4"
                                href="#" @click.prevent="nextImage">
                                 <i class="fas fa-arrow-right"></i>
                             </a>

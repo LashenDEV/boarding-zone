@@ -27,7 +27,7 @@
                 <a href="{{ route('home') }}" class="h-20 w-20">
                     <x-application-mark class="block"/>
                 </a>
-                <a class="text-2xl font-bold text-gray-800 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 lg:text-4xl"
+                <a class="text-2xl font-bold text-gray-800 hover:text-gray-700 dark:text-gray-600 dark:hover:text-gray-900 lg:text-4xl"
                    href="/">BORDING ZONE</a>
             </div>
 
@@ -55,26 +55,26 @@
     <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
          class="absolute inset-x-0 z-20 w-full bg-white px-6 py-4 shadow-md transition-all duration-300 ease-in-out dark:bg-gray-900 lg:relative lg:top-0 lg:mt-0 lg:flex lg:w-auto lg:translate-x-0 lg:items-center lg:bg-transparent lg:p-0 lg:opacity-100 lg:shadow-none lg:dark:bg-transparent">
         <div class="lg:-px-8 flex flex-col space-y-4 lg:mt-0 lg:flex-row lg:space-y-0">
-            <a class="transform text-gray-700 transition-colors duration-300 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 lg:mx-8"
+            <a class="ml-4 transform text-gray-700 transition-colors duration-300 hover:text-blue-500 dark:text-gray-700 dark:hover:text-blue-400 lg:mx-8"
                href="/">Home</a>
-            <a class="transform text-gray-700 transition-colors duration-300 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 lg:mx-8"
+            <a class="ml-4 transform text-gray-700 transition-colors duration-300 hover:text-blue-500 dark:text-gray-700 dark:hover:text-blue-400 lg:mx-8"
                href="/">Service</a>
-            <a class="transform text-gray-700 transition-colors duration-300 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 lg:mx-8"
+            <a class="ml-4 transform text-gray-700 transition-colors duration-300 hover:text-blue-500 dark:text-gray-700 dark:hover:text-blue-400 lg:mx-8"
                href="{{route('about-us')}}">About Us</a>
-            <a class="transform text-gray-700 transition-colors duration-300 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 lg:mx-8"
+            <a class="ml-4 transform text-gray-700 transition-colors duration-300 hover:text-blue-500 dark:text-gray-700 dark:hover:text-blue-400 lg:mx-8"
                href="{{route('contact-us')}}">Contact Us</a>
             @if (Route::has('login'))
                 @auth
                     <a href="{{ url('/dashboard') }}"
-                       class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                @else
-                    <a href="{{ route('login') }}"
-                       class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
-                        in</a>
+                       class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-600 dark:hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                    @else
+                        <a href="{{ route('login') }}"
+                            class="ml-4 font-semibold text-gray-600 hover:text-blue-700 dark:text-gray-600 dark:hover:text-blue-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in
+                        </a>
 
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}"
-                           class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                           class="ml-4 font-semibold text-gray-600 hover:text-blue-700 dark:text-gray-600 dark:hover:text-blue-700-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
                     @endif
                 @endauth
             @endif

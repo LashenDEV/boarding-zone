@@ -5,7 +5,9 @@
 
     @flash-message.window="flashMessageShow = true"
 >
-    <section class="bg-white dark:bg-gray-900">
+    <section class="bg-white dark:bg-gray-300">
+        <div class="border-y-2 border-gray-900"></div>
+
         <h1 class="text-center pt-8 mt-3 text-3xl font-semibold capitalize text-gray-800 :text-white lg:text-5xl">
             Boarding Places
         </h1>
@@ -25,7 +27,7 @@
                                          src="{{asset('storage/' . $boarding_place->thumbnail)}}"
                                          alt="">
                                     <div class="flex justify-end">
-                                        @if($boarding_place->is_reserved !== 'YES')
+                                        @if($boarding_place->is_reserved === 'Yes')
                                             <span class="bg-red-600 text-white rounded-lg p-1 m-2 text-sm">Reserved</span>
                                         @endif
                                     </div>

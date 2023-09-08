@@ -1,18 +1,55 @@
 @extends('layouts.page')
 @section('main')
         <main>
-            <section class="bg-white :bg-gray-900">
-                <div class="text-center">
-                    <div class="flex justify-center">
-                        <img class="h-100 w-full object-cover lg:w-6/5"
-                             src="{{asset('asserts/images/home/home-cover.jpg')}}"/>
+            <section class="bg-white dark:bg-gray-300">
+                <div class="flex justify-center">
+                    <div class=" w-full m-auto">
+                        <div id="default-carousel" data-carousel="static">
+                            <!-- Carousel wrapper -->
+                            <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-90">
+                                <!-- Item 1 -->
+                                <div class=" ease-in-out" data-carousel-item>
+                                    <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
+                                    <img src="{{asset('asserts/images/home/home-cover.jpg')}}" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                                </div>
+                                <!-- Item 2 -->
+                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <img src="{{asset('asserts/images/home/home-cover.jpg')}}" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                                </div>
+                                <!-- Item 3 -->
+                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <img src="{{asset('asserts/images/home/home-cover.jpg')}}" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                                </div>
+                            </div>
+                            <!-- Slider indicators -->
+                            <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
+                                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                            </div>
+                            <!-- Slider controls -->
+                            <button type="button" class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
+                                <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-white/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                    <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                    <span class="hidden">Previous</span>
+                                </span>
+                            </button>
+                            <button type="button" class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-next>
+                                <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-white/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                    <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                    <span class="hidden">Next</span>
+                                </span>
+                            </button>
+                        </div>
+
                     </div>
                 </div>
             </section>
             <div class="container mx-auto">
                 <livewire:boarding-places/>
             </div>
-            <section class="bg-white :bg-gray-900">
+            <div class="border-y-2 border-gray-900"></div>
+            <section class="bg-white dark:bg-gray-300">
                 <div class="mx-auto px-6 py-10">
                     <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 :text-white lg:text-5xl">
                         Our
@@ -66,7 +103,7 @@
                 <div class="text-white lg:mx-6 lg:w-1/2">
                     <h1 class="text-3xl font-semibold capitalize lg:text-5xl">Get a quote</h1>
 
-                    <p class="mt-6 max-w-xl">Ask us everything and we would love to hear from you</p>
+                    <p class="mt-6 max-w-xl">Ask us anything. we would love to hear from you</p>
 
                     <div class="mt-6 space-y-8 md:mt-8">
                         <p class="-mx-2 flex items-start">
@@ -89,7 +126,7 @@
                                       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                             </svg>
 
-                            <span class="mx-2 w-72 truncate text-white">055 563 74 01</span>
+                            <span class="mx-2 w-72 truncate text-white">055 5 637 401</span>
                         </p>
 
                         <p class="-mx-2 flex items-start">
@@ -155,29 +192,28 @@
 
                 <div class="mt-8 lg:mx-6 lg:w-1/2">
                     <div
-                        class="mx-auto w-full overflow-hidden rounded-xl bg-white px-8 py-10 shadow-2xl :bg-gray-900 lg:max-w-xl">
+                        class="mx-auto w-full overflow-hidden rounded-xl bg-white px-8 py-10 shadow-2xl dark:bg-gray-300 lg:max-w-xl">
                         <h1 class="text-2xl font-medium text-gray-700 :text-gray-200">Contact form</h1>
 
                         <form class="mt-6">
                             <div class="flex-1">
-                                <label class="mb-2 block text-sm text-gray-600 :text-gray-200">Full
-                                    Name</label>
-                                <input type="text" placeholder="John Doe"
-                                       class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 :border-gray-600 :bg-gray-900 :text-gray-300 :focus:border-blue-300"/>
+                                <label class="mb-2 block text-sm text-gray-600 :text-gray-200"> Name </label>
+                                <input type="text" placeholder="Enter Your Name"
+                                       class="mt-2 block w-full rounded-md border border-gray-200 bg-white dark:bg-gray-200 px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 :border-gray-600 :bg-gray-900 :text-gray-300 :focus:border-blue-300"/>
                             </div>
 
                             <div class="mt-6 flex-1">
                                 <label class="mb-2 block text-sm text-gray-600 :text-gray-200">Email
                                     address</label>
-                                <input type="email" placeholder="johndoe@example.com"
-                                       class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 :border-gray-600 :bg-gray-900 :text-gray-300 :focus:border-blue-300"/>
+                                <input type="email" placeholder="info@example.com"
+                                       class="mt-2 block w-full rounded-md border border-gray-200 bg-white dark:bg-gray-200 px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 :border-gray-600 :bg-gray-900 :text-gray-300 :focus:border-blue-300"/>
                             </div>
 
                             <div class="mt-6 w-full">
                                 <label
                                     class="mb-2 block text-sm text-gray-600 :text-gray-200">Message</label>
                                 <textarea
-                                    class="mt-2 block h-32 w-full rounded-md border border-gray-200 bg-white px-5 py-3 text-gray-700 placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 :border-gray-600 :bg-gray-900 :text-gray-300 :focus:border-blue-300 md:h-48"
+                                    class="mt-2 block h-32 w-full rounded-md border border-gray-200 bg-white dark:bg-gray-200 px-5 py-3 text-gray-700 placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 :border-gray-600 :bg-gray-900 :text-gray-300 :focus:border-blue-300 md:h-48"
                                     placeholder="Message"></textarea>
                             </div>
 
