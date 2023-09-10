@@ -405,7 +405,7 @@
 
             </script>
         </div>
-        <div class="w-80">
+        <div class="p-4 w-full">
             @livewire('boarding-reviews', ['boarding_id' => $boarding_place->id])
         </div>
     </div>
