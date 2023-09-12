@@ -72,12 +72,32 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{route('admin.bowners')}}"
+                               class="flex items-center p-2 space-x-2 rounded-md hover:bg-blue-100 @if(Route::is('admin.bowners')) bg-blue-200 @endif"
+                               :class="{'justify-center': !isSidebarOpen}">
+                                <span>
+                                <i class="fa-duotone fa-users-line"></i>
+                                </span>
+                                <span :class="{ 'lg:hidden': !isSidebarOpen }">Boarding Owners</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.borders')}}"
+                               class="flex items-center p-2 space-x-2 rounded-md hover:bg-blue-100 @if(Route::is('admin.borders')) bg-blue-200 @endif"
+                               :class="{'justify-center': !isSidebarOpen}">
+                                <span>
+                                <i class="fa-duotone fa-users"></i>
+                                </span>
+                                <span :class="{ 'lg:hidden': !isSidebarOpen }">Boarders</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{route('admin.boarding-house.index')}}"
                                class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
                                :class="{'justify-center': !isSidebarOpen}">
-                <span>
-                    <i class="fa-regular fa-house"></i>
-                </span>
+                            <span>
+                                <i class="fa-regular fa-house"></i>
+                            </span>
                                 <span :class="{ 'lg:hidden': !isSidebarOpen }">Boarding Places</span>
                             </a>
                         </li>
@@ -471,7 +491,7 @@
                                 <div
                                     @click.away="isOpen = false"
                                     x-show.transition.opacity="isOpen"
-                                    class="absolute mt-3 transform -translate-x-full bg-white rounded-md shadow-lg min-w-max"
+                                    class="absolute mt-3 transform -translate-x-full bg-white rounded-md shadow-lg min-w-max z-50"
                                 >
                                     <div class="flex flex-col p-4 space-y-1 font-medium border-b">
                                         <span

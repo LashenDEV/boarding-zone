@@ -35,6 +35,13 @@ Route::middleware([
 Route::group(['prefix' => 'super-admin', 'middleware' => ['auth', 'is_s_admin']], function () {
     Route::get('/dashboard', [App\Http\Controllers\SuperAdmin\ManageDashboard::class, 'index'])->name('super-admin.dashboard');
 
+
+    //User Management
+    Route::get('/admins', [App\Http\Controllers\SuperAdmin\ManageUsers::class, 'manageAdmins'])->name('super-admin.admins');
+    Route::get('/bowners', [App\Http\Controllers\SuperAdmin\ManageUsers::class, 'manageBOwners'])->name('super-admin.bowners');
+    Route::get('/borders', [App\Http\Controllers\SuperAdmin\ManageUsers::class, 'manageBoarders'])->name('super-admin.borders');
+    Route::delete('/user/remove/{id}', [App\Http\Controllers\SuperAdmin\ManageUsers::class, 'removeUser'])->name('super-admin.user.remove');
+
     Route::get('/boarding-places', [App\Http\Controllers\SuperAdmin\ManageBoardingPlace::class, 'index'])->name('super-admin.boarding-house.index');
 });
 
@@ -43,6 +50,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::get('/dashboard', [App\Http\Controllers\Admin\ManageDashboard::class, 'index'])->name('admin.dashboard');
 
     Route::get('/boarding-places', [App\Http\Controllers\Admin\ManageBoardingPlace::class, 'index'])->name('admin.boarding-house.index');
+
+    //User Management
+    Route::get('/bowners', [App\Http\Controllers\Admin\ManageUsers::class, 'manageBOwners'])->name('admin.bowners');
+    Route::get('/borders', [App\Http\Controllers\Admin\ManageUsers::class, 'manageBoarders'])->name('admin.borders');
+    Route::delete('/user/remove/{id}', [App\Http\Controllers\Admin\ManageUsers::class, 'removeUser'])->name('admin.user.remove');
 });
 
 //Routes for Boarding Owner
@@ -51,6 +63,11 @@ Route::group(['prefix' => 'boarding-owner', 'middleware' => ['auth', 'is_b_owner
     Route::get('/boarding-places', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'index'])->name('boarding-owner.boarding-house.index');
 
     Route::get('/map.blade.php', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'manageMap'])->name('boarding-owner.map');
+
+
+    //User Management
+    Route::get('/borders', [App\Http\Controllers\BoardingOwner\ManageUsers::class, 'manageBoarders'])->name('bowner.borders');
+    Route::delete('/user/remove/{id}', [App\Http\Controllers\BoardingOwner\ManageUsers::class, 'removeUser'])->name('bowner.user.remove');
 
     //Payments
     Route::get('/payments', [App\Http\Controllers\BoardingOwner\ManagePayments::class, 'payments'])->name('boarding-owner.payments');
