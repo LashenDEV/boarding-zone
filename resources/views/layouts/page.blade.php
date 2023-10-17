@@ -17,6 +17,7 @@
 
     <!-- Styles -->
     @livewireStyles
+    @stack('Styles')
 </head>
 <body class="antialiased">
 <nav x-data="{ isOpen: false }" class="container mx-auto p-6 lg:flex lg:items-center lg:justify-between">
@@ -159,5 +160,6 @@
     </div>
 </footer>
 @livewireScripts
+@stack('Scripts')
 </body>
 </html>

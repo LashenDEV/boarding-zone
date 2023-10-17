@@ -9,13 +9,26 @@ class BoardingReviews extends Component
     public $boarding_id;
     public $username;
     public $email;
-    public $rating;
+    public $ratings;
     public $comment;
+
+    public $selectedRating = 0;
 
     public function render()
     {
         $reviews = \App\Models\BoardingReviews::get();
         return view('livewire.boarding-reviews', compact('reviews'));
+    }
+
+    public function setRating($rating)
+    {
+        $this->ratings = $rating;
+        $this->selectedRating = $rating;
+    }
+
+    public function colorStars($index)
+    {
+        return $index - 1 < $this->selectedRating ? 'gold' : '';
     }
 
     public function submitReview()
@@ -24,7 +37,7 @@ class BoardingReviews extends Component
             'boarding_id' => 'required',
             'username' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'rating' => 'required|integer|min:1|max:5',
+            'ratings' => 'required|integer|min:1|max:5',
             'comment' => 'required|string|max:500',
         ]);
 
@@ -32,11 +45,11 @@ class BoardingReviews extends Component
             'boarding_id' => $this->boarding_id,
             'username' => $this->username,
             'email' => $this->email,
-            'rating' => $this->rating,
+            'rating' => $this->ratings,
             'comment' => $this->comment,
         ]);
 
-        $this->reset(['username', 'email', 'rating', 'comment', 'boarding_id']);
+        $this->reset(['username', 'email', 'ratings', 'comment', 'boarding_id']);
 
         session()->flash('message', 'Review submitted successfully!');
     }
