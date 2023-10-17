@@ -62,7 +62,17 @@ Route::group(['prefix' => 'boarding-owner', 'middleware' => ['auth', 'is_b_owner
     Route::get('/dashboard', [App\Http\Controllers\BoardingOwner\ManageDashboard::class, 'index'])->name('boarding-owner.dashboard');
     Route::get('/boarding-places', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'index'])->name('boarding-owner.boarding-house.index');
 
-    Route::get('/map.blade.php', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'manageMap'])->name('boarding-owner.map');
+    Route::get('/map', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'manageMap'])->name('boarding-owner.map');
+
+    //Boarding Reviews
+    Route::get('boarding-places/reviews', [App\Http\Controllers\BoardingOwner\ManageBoardingReviews::class, 'index'])->name('boarding-owner.boarding-house.reviews');
+
+
+
+
+    //User Management
+    Route::get('/borders', [App\Http\Controllers\BoardingOwner\ManageUsers::class, 'manageBoarders'])->name('bowner.borders');
+    Route::delete('/user/remove/{id}', [App\Http\Controllers\BoardingOwner\ManageUsers::class, 'removeUser'])->name('bowner.user.remove');
 
 
     //User Management
