@@ -8,6 +8,20 @@
     @endpush
 
     <div>
+        <div class="container mx-auto p-6">
+            @if ($errors->any())
+                <div class="bg-red-100 text-red-800 p-4 mb-4 rounded">
+                    <ul class="list-disc pl-5">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+        @if (session()->has('message'))
+            <div class="bg-green-100 text-green-800 p-3 mb-4">{{ session('message') }}</div>
+        @endif
         <div class="flex h-screen overflow-y-hidden bg-white" x-data="setup()"
              x-init="$refs.loading.classList.add('hidden')">
             <!-- Loading screen -->
