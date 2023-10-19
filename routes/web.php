@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/home', [HomeController::class, 'welcome'])->name('welcome');
 Route::get('/', [HomeController::class, 'checkUserType'])->name('home');
 //Route::get('/view-boarding-place/{id}', \App\Http\Livewire\ViewBoardingPlaces::class)->name('view-boarding-place');
 Route::get('/view-boarding-place/{id}', [\App\Http\Controllers\ViewBoardingPlace::class, 'viewBoardingPlace'])->name('view-boarding-place');
@@ -66,8 +68,6 @@ Route::group(['prefix' => 'boarding-owner', 'middleware' => ['auth', 'is_b_owner
 
     //Boarding Reviews
     Route::get('boarding-places/reviews', [App\Http\Controllers\BoardingOwner\ManageBoardingReviews::class, 'index'])->name('boarding-owner.boarding-house.reviews');
-
-
 
 
     //User Management

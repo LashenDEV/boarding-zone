@@ -101,10 +101,10 @@
                 </div>
             </div>
         @endforeach
+    </div>
 
-        <div class="p-2">
-            {{$boarding_places->links()}}
-        </div>
+    <div class="p-2">
+        {{$boarding_places->links()}}
     </div>
     <!-- Create, Edit, Delete Modal -->
     @include('livewire.boarding-owner.manage-boarding-places.components.model')
