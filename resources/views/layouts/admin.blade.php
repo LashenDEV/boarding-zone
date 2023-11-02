@@ -76,7 +76,7 @@
                 <nav class="flex-1 overflow-hidden hover:overflow-y-auto">
                     <ul class="p-2 overflow-hidden">
                         <li>
-                            <a href="{{route('boarding-owner.dashboard')}}"
+                            <a href="{{route('admin.dashboard')}}"
                                class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
                                :class="{'justify-center': !isSidebarOpen}">
                 <span>
