@@ -37,12 +37,17 @@ Route::middleware([
 Route::group(['prefix' => 'super-admin', 'middleware' => ['auth', 'is_s_admin']], function () {
     Route::get('/dashboard', [App\Http\Controllers\SuperAdmin\ManageDashboard::class, 'index'])->name('super-admin.dashboard');
 
-
     //User Management
     Route::get('/admins', [App\Http\Controllers\SuperAdmin\ManageUsers::class, 'manageAdmins'])->name('super-admin.admins');
     Route::get('/bowners', [App\Http\Controllers\SuperAdmin\ManageUsers::class, 'manageBOwners'])->name('super-admin.bowners');
     Route::get('/borders', [App\Http\Controllers\SuperAdmin\ManageUsers::class, 'manageBoarders'])->name('super-admin.borders');
     Route::delete('/user/remove/{id}', [App\Http\Controllers\SuperAdmin\ManageUsers::class, 'removeUser'])->name('super-admin.user.remove');
+
+    //Boarding Reviews
+    Route::get('boarding-places/reviews/', [App\Http\Controllers\SuperAdmin\ManageBoardingReviews::class, 'index'])->name('super-admin.boarding-house.reviews');
+    Route::get('boarding-places/review/approve/{id}', [App\Http\Controllers\SuperAdmin\ManageBoardingReviews::class, 'approval'])->name('super-admin.boarding-house.review.approve');
+    Route::get('boarding-places/reviews/reject/{id}', [App\Http\Controllers\SuperAdmin\ManageBoardingReviews::class, 'rejection'])->name('super-admin.boarding-house.review.reject');
+    Route::get('boarding-places/reviews/remove/{id}', [App\Http\Controllers\SuperAdmin\ManageBoardingReviews::class, 'removal'])->name('super-admin.boarding-house.review.remove');
 
     Route::get('/boarding-places', [App\Http\Controllers\SuperAdmin\ManageBoardingPlace::class, 'index'])->name('super-admin.boarding-house.index');
 });
@@ -51,12 +56,18 @@ Route::group(['prefix' => 'super-admin', 'middleware' => ['auth', 'is_s_admin']]
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\ManageDashboard::class, 'index'])->name('admin.dashboard');
 
-    Route::get('/boarding-places', [App\Http\Controllers\Admin\ManageBoardingPlace::class, 'index'])->name('admin.boarding-house.index');
-
     //User Management
     Route::get('/bowners', [App\Http\Controllers\Admin\ManageUsers::class, 'manageBOwners'])->name('admin.bowners');
     Route::get('/borders', [App\Http\Controllers\Admin\ManageUsers::class, 'manageBoarders'])->name('admin.borders');
     Route::delete('/user/remove/{id}', [App\Http\Controllers\Admin\ManageUsers::class, 'removeUser'])->name('admin.user.remove');
+
+    Route::get('/boarding-places', [App\Http\Controllers\Admin\ManageBoardingPlace::class, 'index'])->name('admin.boarding-house.index');
+
+    //Boarding Reviews
+    Route::get('boarding-places/reviews/', [App\Http\Controllers\Admin\ManageBoardingReviews::class, 'index'])->name('admin.boarding-house.reviews');
+    Route::get('boarding-places/review/approve/{id}', [App\Http\Controllers\Admin\ManageBoardingReviews::class, 'approval'])->name('admin.boarding-house.review.approve');
+    Route::get('boarding-places/reviews/reject/{id}', [App\Http\Controllers\Admin\ManageBoardingReviews::class, 'rejection'])->name('admin.boarding-house.review.reject');
+    Route::get('boarding-places/reviews/remove/{id}', [App\Http\Controllers\Admin\ManageBoardingReviews::class, 'removal'])->name('admin.boarding-house.review.remove');
 });
 
 //Routes for Boarding Owner
@@ -67,7 +78,10 @@ Route::group(['prefix' => 'boarding-owner', 'middleware' => ['auth', 'is_b_owner
     Route::get('/map', [App\Http\Controllers\BoardingOwner\ManageBoardingPlace::class, 'manageMap'])->name('boarding-owner.map');
 
     //Boarding Reviews
-    Route::get('boarding-places/reviews', [App\Http\Controllers\BoardingOwner\ManageBoardingReviews::class, 'index'])->name('boarding-owner.boarding-house.reviews');
+    Route::get('boarding-places/reviews/{id}', [App\Http\Controllers\BoardingOwner\ManageBoardingReviews::class, 'index'])->name('boarding-owner.boarding-house.reviews');
+    Route::get('boarding-places/review/approve/{id}', [App\Http\Controllers\BoardingOwner\ManageBoardingReviews::class, 'approval'])->name('boarding-owner.boarding-house.review.approve');
+    Route::get('boarding-places/reviews/reject/{id}', [App\Http\Controllers\BoardingOwner\ManageBoardingReviews::class, 'rejection'])->name('boarding-owner.boarding-house.review.reject');
+    Route::get('boarding-places/reviews/remove/{id}', [App\Http\Controllers\BoardingOwner\ManageBoardingReviews::class, 'removal'])->name('boarding-owner.boarding-house.review.remove');
 
 
     //User Management

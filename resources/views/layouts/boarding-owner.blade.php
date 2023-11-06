@@ -13,14 +13,38 @@
                 <div class="bg-red-100 text-red-800 p-4 mb-4 rounded">
                     <ul class="list-disc pl-5">
                         @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
+                            <div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-red-300">
+                                  <span class="text-xl inline-block mr-5 align-middle">
+                                    <i class="fas fa-bell"></i>
+                                  </span>
+                                <span class="inline-block align-middle mr-8">
+                                  {{ $error }}
+                                  </span>
+                                <button
+                                    class="absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-4 mr-6 outline-none focus:outline-none"
+                                    onclick="closeAlert(event)">
+                                    <span>×</span>
+                                </button>
+                            </div>
                         @endforeach
                     </ul>
                 </div>
             @endif
         </div>
         @if (session()->has('message'))
-            <div class="bg-green-100 text-green-800 p-3 mb-4">{{ session('message') }}</div>
+            <div class="text-dark px-6 py-4 border-0 rounded relative mb-4 bg-green-200">
+                                  <span class="text-xl inline-block mr-5 align-middle">
+                                    <i class="fas fa-bell"></i>
+                                  </span>
+                <span class="inline-block align-middle mr-8">
+                                  {{ session('message') }}
+                                  </span>
+                <button
+                    class="absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-4 mr-6 outline-none focus:outline-none"
+                    onclick="closeAlert(event)">
+                    <span>×</span>
+                </button>
+            </div>
         @endif
         <div class="flex h-screen overflow-y-hidden bg-white" x-data="setup()"
              x-init="$refs.loading.classList.add('hidden')">
@@ -106,7 +130,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('boarding-owner.boarding-house.reviews')}}"
+                            <a href="{{route('boarding-owner.boarding-house.reviews', \App\Models\BoardingPlace::where('bowner_id', \Illuminate\Support\Facades\Auth::user()->id)->first()['id'])}}"
                                class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
                                :class="{'justify-center': !isSidebarOpen}">
                                 <span>
@@ -506,7 +530,7 @@
                                 <div
                                     @click.away="isOpen = false"
                                     x-show.transition.opacity="isOpen"
-                                    class="absolute mt-3 transform -translate-x-full bg-white rounded-md shadow-lg min-w-max"
+                                    class="absolute mt-3 transform -translate-x-full bg-white rounded-md shadow-lg min-w-max z-50"
                                 >
                                     <div class="flex flex-col p-4 space-y-1 font-medium border-b">
                                         <span
@@ -542,6 +566,21 @@
                 </header>
                 <!-- Main content -->
                 <main class="flex-1 max-h-full p-5 overflow-hidden overflow-y-scroll">
+                    @if (session()->has('success'))
+                        <div class="text-dark px-6 py-4 border-0 rounded relative mb-4 bg-green-200">
+                                      <span class="text-xl inline-block mr-5 align-middle">
+                                        <i class="fas fa-bell"></i>
+                                      </span>
+                            <span class="inline-block align-middle mr-8">
+                                      {{ session('success') }}
+                                      </span>
+                            <button
+                                class="absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-4 mr-6 outline-none focus:outline-none"
+                                onclick="closeAlert(event)">
+                                <span>×</span>
+                            </button>
+                        </div>
+                    @endif
                     @yield('main')
                 </main>
                 <!-- Main footer -->

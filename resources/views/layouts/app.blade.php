@@ -14,6 +14,8 @@
         <!-- FontAwesome CDN -->
         <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css">
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/tailwind.css">
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/css/styles.css', 'resources/js/app.js'])
 

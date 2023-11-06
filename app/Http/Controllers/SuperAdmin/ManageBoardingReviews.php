@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\BoardingOwner;
+namespace App\Http\Controllers\SuperAdmin;
 
-use App\Http\Controllers\Controller;
 use App\Models\BoardingReviews;
-use Illuminate\Http\Request;
 
-class ManageBoardingReviews extends Controller
+class ManageBoardingReviews
 {
-    public function index($id)
+    public function index()
     {
 
-        $reviews = BoardingReviews::where('boarding_id', $id)->get();
-        return view('boarding-owner.reviews', compact('reviews'));
+        $reviews = BoardingReviews::all();
+        return view('super-admin.reviews', compact('reviews'));
     }
 
 
@@ -31,13 +29,13 @@ class ManageBoardingReviews extends Controller
         $review = BoardingReviews::whereId($id)->first();
         $review->status = 'Declined';
         $review->save();
-        return redirect()->back()->with('success', 'Review Approved Successfully');
+        return redirect()->back()->with('success', 'Review Rejected Successfully');
     }
 
     public function removal($id)
     {
 
         $review = BoardingReviews::whereId($id)->delete();
-        return redirect()->back()->with('success', 'Review Approved Successfully');
+        return redirect()->back()->with('success', 'Review Deleted Successfully');
     }
 }
