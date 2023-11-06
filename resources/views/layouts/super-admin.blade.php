@@ -13,14 +13,38 @@
                 <div class="bg-red-100 text-red-800 p-4 mb-4 rounded">
                     <ul class="list-disc pl-5">
                         @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
+                            <div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-red-300">
+                                  <span class="text-xl inline-block mr-5 align-middle">
+                                    <i class="fas fa-bell"></i>
+                                  </span>
+                                <span class="inline-block align-middle mr-8">
+                                  {{ $error }}
+                                  </span>
+                                <button
+                                    class="absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-4 mr-6 outline-none focus:outline-none"
+                                    onclick="closeAlert(event)">
+                                    <span>×</span>
+                                </button>
+                            </div>
                         @endforeach
                     </ul>
                 </div>
             @endif
         </div>
         @if (session()->has('message'))
-            <div class="bg-green-100 text-green-800 p-3 mb-4">{{ session('message') }}</div>
+            <div class="text-dark px-6 py-4 border-0 rounded relative mb-4 bg-green-200">
+                                  <span class="text-xl inline-block mr-5 align-middle">
+                                    <i class="fas fa-bell"></i>
+                                  </span>
+                <span class="inline-block align-middle mr-8">
+                                  {{ session('message') }}
+                                  </span>
+                <button
+                    class="absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-4 mr-6 outline-none focus:outline-none"
+                    onclick="closeAlert(event)">
+                    <span>×</span>
+                </button>
+            </div>
         @endif
         <div class="flex h-screen overflow-y-hidden bg-white" x-data="setup()"
              x-init="$refs.loading.classList.add('hidden')">
@@ -113,6 +137,16 @@
                                 <i class="fa-duotone fa-users"></i>
                                 </span>
                                 <span :class="{ 'lg:hidden': !isSidebarOpen }">Boarders</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('super-admin.boarding-house.reviews')}}"
+                               class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
+                               :class="{'justify-center': !isSidebarOpen}">
+                                <span>
+                                    <i class="fa-duotone fa-star-sharp-half-stroke"></i>
+                                </span>
+                                <span :class="{ 'lg:hidden': !isSidebarOpen }">Boarding reviews</span>
                             </a>
                         </li>
                         {{--                        <li>--}}
@@ -550,6 +584,21 @@
                 </header>
                 <!-- Main content -->
                 <main class="flex-1 max-h-full p-5 overflow-hidden overflow-y-scroll">
+                    @if (session()->has('success'))
+                        <div class="text-dark px-6 py-4 border-0 rounded relative mb-4 bg-green-200">
+                                      <span class="text-xl inline-block mr-5 align-middle">
+                                        <i class="fas fa-bell"></i>
+                                      </span>
+                            <span class="inline-block align-middle mr-8">
+                                      {{ session('success') }}
+                                      </span>
+                            <button
+                                class="absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-4 mr-6 outline-none focus:outline-none"
+                                onclick="closeAlert(event)">
+                                <span>×</span>
+                            </button>
+                        </div>
+                    @endif
                     @yield('main')
                 </main>
                 <!-- Main footer -->
@@ -650,6 +699,16 @@
                     isSettingsPanelOpen: false,
                     isSearchBoxOpen: false,
                 }
+            }
+        </script>
+
+        <script>
+            function closeAlert(event) {
+                let element = event.target;
+                while (element.nodeName !== "BUTTON") {
+                    element = element.parentNode;
+                }
+                element.parentNode.parentNode.removeChild(element.parentNode);
             }
         </script>
     @endpush

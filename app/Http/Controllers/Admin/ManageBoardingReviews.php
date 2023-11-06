@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\BoardingOwner;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\BoardingReviews;
-use Illuminate\Http\Request;
 
-class ManageBoardingReviews extends Controller
+class ManageBoardingReviews
 {
-    public function index($id)
+    public function index()
     {
 
-        $reviews = BoardingReviews::where('boarding_id', $id)->get();
-        return view('boarding-owner.reviews', compact('reviews'));
+        $reviews = BoardingReviews::all();
+        return view('admin.reviews', compact('reviews'));
     }
 
 
