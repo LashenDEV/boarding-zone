@@ -4,6 +4,7 @@ namespace App\Http\Controllers\BoardingOwner;
 
 use App\Http\Controllers\Controller;
 use App\Models\BoardingPlace;
+use App\Models\Notification;
 use App\Models\ReservedBoardingPlaces;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,6 +15,7 @@ class ManageDashboard extends Controller
     {
         $my_boarding_count = 0;
         $reserved_boarders_ids = [];
+        $notifications = [];
 
         $boarding_places = BoardingPlace::where('bowner_id', Auth::id())->get();
         foreach ($boarding_places as $boarding_place) {
@@ -23,7 +25,6 @@ class ManageDashboard extends Controller
                 $reserved_boarders_ids[] = $reserved_boarders;
             }
         }
-
 
         return view('boarding-owner.dashboard', compact('boarding_places', 'my_boarding_count', 'reserved_boarders_ids'));
     }

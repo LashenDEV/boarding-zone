@@ -42,6 +42,9 @@ Route::group(['prefix' => 'super-admin', 'middleware' => ['auth', 'is_s_admin']]
     Route::get('/borders', [App\Http\Controllers\SuperAdmin\ManageUsers::class, 'manageBoarders'])->name('super-admin.borders');
     Route::delete('/user/remove/{id}', [App\Http\Controllers\SuperAdmin\ManageUsers::class, 'removeUser'])->name('super-admin.user.remove');
 
+    //Notifications
+    Route::get('/notifications/read/{id}', [App\Http\Controllers\Notifications::class, 'readBySAdmin'])->name('notification.readBySAdmin');
+
     //Boarding Reviews
     Route::get('boarding-places/reviews/', [App\Http\Controllers\SuperAdmin\ManageBoardingReviews::class, 'index'])->name('super-admin.boarding-house.reviews');
     Route::get('boarding-places/review/approve/{id}', [App\Http\Controllers\SuperAdmin\ManageBoardingReviews::class, 'approval'])->name('super-admin.boarding-house.review.approve');
@@ -61,6 +64,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::delete('/user/remove/{id}', [App\Http\Controllers\Admin\ManageUsers::class, 'removeUser'])->name('admin.user.remove');
 
     Route::get('/boarding-places', [App\Http\Controllers\Admin\ManageBoardingPlace::class, 'index'])->name('admin.boarding-house.index');
+
+    //Notifications
+    Route::get('/notifications/read/{id}', [App\Http\Controllers\Notifications::class, 'readByAdmin'])->name('notification.readByAdmin');
 
     //Boarding Reviews
     Route::get('boarding-places/reviews/', [App\Http\Controllers\Admin\ManageBoardingReviews::class, 'index'])->name('admin.boarding-house.reviews');
@@ -82,15 +88,12 @@ Route::group(['prefix' => 'boarding-owner', 'middleware' => ['auth', 'is_b_owner
     Route::get('boarding-places/reviews/reject/{id}', [App\Http\Controllers\BoardingOwner\ManageBoardingReviews::class, 'rejection'])->name('boarding-owner.boarding-house.review.reject');
     Route::get('boarding-places/reviews/remove/{id}', [App\Http\Controllers\BoardingOwner\ManageBoardingReviews::class, 'removal'])->name('boarding-owner.boarding-house.review.remove');
 
-
     //User Management
     Route::get('/borders', [App\Http\Controllers\BoardingOwner\ManageUsers::class, 'manageBoarders'])->name('bowner.borders');
     Route::delete('/user/remove/{id}', [App\Http\Controllers\BoardingOwner\ManageUsers::class, 'removeUser'])->name('bowner.user.remove');
 
-
-    //User Management
-    Route::get('/borders', [App\Http\Controllers\BoardingOwner\ManageUsers::class, 'manageBoarders'])->name('bowner.borders');
-    Route::delete('/user/remove/{id}', [App\Http\Controllers\BoardingOwner\ManageUsers::class, 'removeUser'])->name('bowner.user.remove');
+    //Notifications
+    Route::get('/notifications/read/{id}', [App\Http\Controllers\Notifications::class, 'readByBOwner'])->name('notification.readByBOwner');
 
     //Payments
     Route::get('/payments', [App\Http\Controllers\BoardingOwner\ManagePayments::class, 'payments'])->name('boarding-owner.payments');

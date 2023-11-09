@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\BoardingPlace;
+use App\Models\Notification;
 use Livewire\Component;
 
 class BoardingReviews extends Component
@@ -47,6 +49,14 @@ class BoardingReviews extends Component
             'email' => $this->email,
             'rating' => $this->ratings,
             'comment' => $this->comment,
+        ]);
+
+        Notification::create([
+            'username' => $this->username,
+            'bowner_id' => BoardingPlace::whereId($this->boarding_id)->first()['bowner_id'],
+            'boarding_id' => $this->boarding_id,
+            'message' => 'Added a Review',
+            'icon' => '<i class="fa fa-star" aria-hidden="true"></i>'
         ]);
 
         $this->reset(['username', 'email', 'ratings', 'comment', 'boarding_id']);
