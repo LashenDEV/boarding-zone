@@ -13,13 +13,17 @@
         @csrf
 
         <!-- Container -->
-        <div class="flex relative flex-wrap justify-center content-center min-h-screen bg-gray-200">
+        <div class="flex relative flex-wrap justify-center content-center min-h-screen bg-gray-200" >
             <!-- Login component -->
             <div class="flex flex-row-reverse shadow-md">
                 <!-- Login form -->
                 <div class="flex flex-wrap justify-center content-center bg-white rounded-l-md md:w-1/2 lg:w-1/3 xl:w-1/4">
-                    <div class="p-4 w-full">
+                    <div class="p-4 w-full d-flex content-center">
                         <!-- Heading -->
+                        <a href="{{ route('home') }}" class="h-20 w-20">
+                        <x-application-mark class="block"/>
+                        </a>
+                        
                         <h1 class="text-xl font-semibold">Welcome back</h1>
                         <small class="text-gray-400">Welcome back! Please enter your details</small>
 
@@ -57,7 +61,7 @@
                     <!-- Footer -->
                     <div class="w-full text-center">
                         <span class="text-xs font-semibold text-gray-400">Don't have an account?</span>
-                        <a href="#" class="text-xs font-semibold text-purple-700">Register</a>
+                        <a href="{{route('register')}}" class="text-xs font-semibold text-purple-700">Register</a>
                     </div>
                 </div>
 
