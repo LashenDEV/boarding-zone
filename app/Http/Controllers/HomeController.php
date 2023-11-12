@@ -34,6 +34,8 @@ class HomeController extends Controller
             return redirect()->route('boarding-owner.dashboard');
         } elseif (Auth::user()->userType === 'CLNT') {
             return redirect()->route('client.dashboard');
-        }
+        }else{
+            return redirect()->route('welcome');
+        };
     }
 }

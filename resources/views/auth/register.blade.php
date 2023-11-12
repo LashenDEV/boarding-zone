@@ -17,6 +17,9 @@
                 <div class="flex flex-row-reverse shadow-md">
                     <div class="flex flex-wrap justify-center content-center bg-white rounded-l-md md:w-1/2 lg:w-1/3 xl:w-1/4">
                         <div class="p-4 w-full">
+                            <a href="{{ route('home') }}" class="h-20 w-20">
+                            <x-application-mark class="block"/>
+                            </a>
                             <h1 class="text-xl font-semibold">Welcome!</h1>
                             <small class="text-gray-400">Please enter your details.</small>
 

@@ -130,6 +130,7 @@
                             </a>
                         </li>
                         <li>
+                            @if(isset(\App\Models\BoardingPlace::where('bowner_id', \Illuminate\Support\Facades\Auth::user()->id)->first()['id']))
                             <a href="{{route('boarding-owner.boarding-house.reviews', \App\Models\BoardingPlace::where('bowner_id', \Illuminate\Support\Facades\Auth::user()->id)->first()['id'])}}"
                                class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
                                :class="{'justify-center': !isSidebarOpen}">
@@ -138,6 +139,7 @@
                                 </span>
                                 <span :class="{ 'lg:hidden': !isSidebarOpen }">Boarding reviews</span>
                             </a>
+                            @endif
                         </li>
                         <li>
                             <a href="{{route('boarding-owner.map')}}"

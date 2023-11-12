@@ -40,6 +40,10 @@ class ViewBoardingPlace extends Controller
             }
         }
 
+        $user = User::whereId(Auth::user()->id)->first();
+        $user->userType = "CLNT";
+        $user->save();
+
 
         return redirect('/client/my-boarding-place')->with(['message' => 'Boarding place is reserved successfully']);
     }
