@@ -5,9 +5,9 @@
         <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
             <div class="flex items-start justify-between">
                 <div class="flex flex-col space-y-2">
-                    <span class="text-gray-400">My Boarding Places</span>
-                    @if($my_boarding_place == 'null')
-                        <h1 class="text-2xl p-5 font-bold">{{$my_bsoarding_place->name}}</h1>
+                    <span class="text-gray-400">My Boarding Place</span>
+                    @if($my_boarding_place !== null)
+                        <h1 class="text-2xl p-5 font-bold">{{$my_boarding_place->name}}</h1>
                     @else
                         <a class="text-red-400 bold" href="{{route('welcome')}}">Register New Boarding</a>
                     @endif
@@ -21,7 +21,7 @@
             <div class="flex items-start justify-between">
                 <div class="flex flex-col space-y-2">
                     <span class="text-gray-400">My Boarders</span>
-                    @if($my_boarding_place == 'null')
+                    @if($my_boarding_place !== null)
                         <h1 class="text-2xl p-5 font-bold">1</h1>
                     @else
                         No data available

@@ -25,7 +25,7 @@
                                          src="{{asset('storage/' . $boarding_place->thumbnail)}}"
                                          alt="">
                                     <div class="flex justify-end">
-                                        @if($boarding_place->is_reserved !== 'YES')
+                                        @if($boarding_place->is_reserved == 'YES')
                                             <span class="bg-red-600 text-white rounded-lg p-1 m-2 text-sm">Reserved</span>
                                         @endif
                                     </div>
