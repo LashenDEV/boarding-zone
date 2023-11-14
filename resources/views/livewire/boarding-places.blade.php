@@ -6,7 +6,7 @@
     @flash-message.window="flashMessageShow = true"
 >
     <section class="bg-white">
-        <h1 class="text-center pt-8 mt-3 text-3xl font-semibold capitalize text-gray-800 :text-white lg:text-5xl">
+        <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 :text-white lg:text-5xl">
             Boarding Places
         </h1>
         <div class="py-2">
