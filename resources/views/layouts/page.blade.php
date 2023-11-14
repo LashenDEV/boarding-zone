@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet"/>
 
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css">
     <!-- Scripts -->
@@ -59,7 +61,7 @@
             <a class="transform text-gray-700 transition-colors duration-300 hover:text-blue-500   lg:mx-8"
                href="/">Home</a>
             <a class="transform text-gray-700 transition-colors duration-300 hover:text-blue-500   lg:mx-8"
-               href="/">Service</a>
+               href="{{url('/#our-features')}}">Service</a>
             <a class="transform text-gray-700 transition-colors duration-300 hover:text-blue-500   lg:mx-8"
                href="{{route('about-us')}}">About Us</a>
             <a class="transform text-gray-700 transition-colors duration-300 hover:text-blue-500   lg:mx-8"
@@ -161,5 +163,9 @@
 </footer>
 @livewireScripts
 @stack('Scripts')
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 </body>
 </html>
