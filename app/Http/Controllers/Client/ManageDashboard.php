@@ -12,9 +12,14 @@ class ManageDashboard extends Controller
 {
     public function index()
     {
+        $my_boarding_place = null;
+        $same_reserved_boarding = null;
+
         $reserved_boarding_place = ReservedBoardingPlaces::where('boarder_id', Auth::user()->id)->first();
-        $my_boarding_place = BoardingPlace::where('id', $reserved_boarding_place->boarding_place_id)->first();
-        $same_reserved_boarding = ReservedBoardingPlaces::where('id', $my_boarding_place->id)->get();
+        if ($reserved_boarding_place) {
+            $my_boarding_place = BoardingPlace::where('id', $reserved_boarding_place->boarding_place_id)->first();
+            $same_reserved_boarding = ReservedBoardingPlaces::where('id', $my_boarding_place->id)->get();
+        }
         return view('client.dashboard', compact('my_boarding_place', 'same_reserved_boarding'));
     }
 }
