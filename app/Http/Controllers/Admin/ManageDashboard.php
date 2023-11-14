@@ -15,7 +15,7 @@ class ManageDashboard extends Controller
         $my_boarding_count = 0;
         $reserved_boarders_ids = [];
 
-        $boarding_places = BoardingPlace::all();
+        $boarding_places = BoardingPlace::where('publish_status', "Approved")->get();
         foreach ($boarding_places as $boarding_place) {
             $my_boarding_count = $my_boarding_count + \App\Models\ReservedBoardingPlaces::where('boarding_place_id', $boarding_place->id)->get()->count();
         }

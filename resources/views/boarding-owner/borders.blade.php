@@ -38,16 +38,22 @@
                                 scope="col"
                                 class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
                             >
+                                Payment Month
+                            </th>
+                            <th
+                                scope="col"
+                                class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                            >
                                 Payment Status
                             </th>
 
-                                                        <th scope="col" class="relative px-6 py-3">
-                                                            <span class="sr-only">Edit</span>
-                                                        </th>
+                            <th scope="col" class="relative px-6 py-3">
+                                <span class="sr-only">Edit</span>
+                            </th>
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach($users as $user)
+                        @foreach($clnts as $clnt)
                             <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
@@ -60,53 +66,42 @@
                                         </div>
                                         <div class="ml-4">
                                             <div
-                                                class="text-sm font-medium text-gray-900">{{\App\Models\User::where('id', $user->id)->first()['name']}}
+                                                class="text-sm font-medium text-gray-900">{{$clnt->boarders[0]['name']}}
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{\App\Models\User::where('id', $user->id)->first()['email']}}</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{$clnt->boarders[0]['email']}}</td>
                                 <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                    @if(\App\Models\User::where('id', $user->id)->first()['userType'] == 'ADM')
+                                    @if($clnt->userType == 'ADM')
                                         <span class="p-2 bg-red-300 rounded-2xl">Admin</span>
 
-                                    @elseif(\App\Models\User::where('id', $user->id)->first()['userType'] == 'BOR')
+                                    @elseif($clnt->userType == 'BOR')
                                         <span class="p-2 bg-green-300 rounded-2xl">Owner</span>
                                     @else
                                         <span class="p-2 bg-yellow-300 rounded-2xl">Border</span>
                                     @endif</td>
-
-                                @if(\App\Models\ReservedBoardingPlaces::where('boarder_id', $user->id)->first())
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        @php($boarding_id = (\App\Models\ReservedBoardingPlaces::where('boarder_id', $user->id)->first()['boarding_place_id']))
-                                        <div
-                                            class="te   xt-sm text-gray-900">{{\App\Models\BoardingPlace::where('id', $boarding_id)->first()['name']}}
-                                        </div>
-                                        <div class="text-sm text-gray-500">Jayagama</div>
-                                    </td>
-                                @elseif(\App\Models\BoardingPlace::where('bowner_id', $user->id)->first())
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div
-                                            class="te   xt-sm text-gray-900">{{\App\Models\BoardingPlace::where('bowner_id', $user->id)->first()['name']}}
-                                        </div>
-                                        <div class="text-sm text-gray-500">Jayagama</div>
-                                    </td>
-                                @else
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div
-                                            class="te   xt-sm text-gray-900">-
-                                        </div>
-                                    </td>
-                                @endif
                                 <td class="px-6 py-4 whitespace-nowrap">
-                            <span
-                                class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full"
-                            >
-                              Done
+                                    <div
+                                        class="text-sm text-gray-900">{{\App\Models\BoardingPlace::where('id', $clnt->boarding_place_id)->first()['name']}}
+                                    </div>
+                                    <div class="text-sm text-gray-500">Jayagama</div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{now()->monthName}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    @if(\App\Models\BoardingPayment::where('boarding_id', $clnt->boarding_place_id)->where('boarder_id', $clnt->id)->where('month', now()->monthName)->first())
+                                        <span
+                                            class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">Done
                             </span>
+                                    @else
+                                        <span
+                                            class="inline-flex px-2 text-xs font-semibold leading-5 text-yellow-800 bg-yellow-100 rounded-full">Not Yet
+                            </span>
+                                    @endif
                                 </td>
                                 <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                    <a href="{{route('super-admin.user.remove', $user->id)}}" class="text-indigo-600 hover:text-indigo-900">Remove</a>
+                                    <a href="{{route('super-admin.user.remove', $clnt->id)}}"
+                                       class="text-indigo-600 hover:text-indigo-900">Remove</a>
                                 </td>
                             </tr>
                         @endforeach
