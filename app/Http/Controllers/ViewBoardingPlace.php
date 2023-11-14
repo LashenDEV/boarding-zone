@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BoardingPlace;
 use App\Models\BoardingPlaceImages;
 use App\Models\ReservedBoardingPlaces;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,12 +40,6 @@ class ViewBoardingPlace extends Controller
                 $boarding_place->save();
             }
         }
-
-        $user = User::whereId(Auth::user()->id)->first();
-        $user->userType = "CLNT";
-        $user->save();
-
-
         return redirect('/client/my-boarding-place')->with(['message' => 'Boarding place is reserved successfully']);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\BoardingOwner;
 
 use App\Http\Controllers\Controller;
+use App\Models\ReservedBoardingPlaces;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -10,9 +11,11 @@ class ManageUsers extends Controller
 {
     public function manageBoarders()
     {
-        $users = User::where('userType', 'CLNT')->get();
+        $clnts[] = null;
 
-        return view('boarding-owner.borders', compact('users'));
+        $clnts = ReservedBoardingPlaces::with('boarders')->get();
+
+        return view('boarding-owner.borders', compact('clnts'));
     }
 
     public function removeUser($id)

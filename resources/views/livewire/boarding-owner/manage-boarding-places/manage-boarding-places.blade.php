@@ -66,8 +66,11 @@
                                 <span
                                     class="p-1 text-xs bg-gray-600 h-full rounded-md text-white {{$boarding_place->publish_status == "Pending" ? 'bg-gray-600' : ($boarding_place->publish_status == "Approved" ? 'bg-green-600' : 'bg-red-600' )}}">{{$boarding_place->publish_status}}</span>
                             </div>
-                            <p class="font-normal text-gray-700 mb-3 ">">Price:
+                            <p class="font-normal text-gray-700 mb-3 ">Price:
                                 Rs.{{$boarding_place->price}}/=</p>
+
+                            <p class="font-normal text-gray-700 mb-3 ">{{$boarding_place->description}}/=</p>
+
                             <div class="flex flex-row justify-end">
                                 <a x-on:click="editModalShow = true" wire:click="editPost({{$boarding_place->id}})"
                                    class="ml-1 cursor-pointer text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center    ">
