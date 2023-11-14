@@ -12,7 +12,7 @@
         </section>
 
         <!--Featured Section-->
-        <section class="text-gray-700 body-font">
+        <section class="text-gray-700 body-font animate__animated animate__fadeIn">
             <div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
                 <div
                     class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
@@ -26,14 +26,18 @@
                     <p class="mb-8 leading-relaxed">Discover a smooth and personalized experience in locating the best boarding facility for your requirements.
                         Our platform links you with a wide variety of boarding alternatives, ensuring that you feel at ease wherever you travel.</p>
                     <div class="flex justify-center">
-                        <button
-                            class="inline-flex text-white bg-indigo-500  py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded-lg text-lg">
-                            View Boardings
-                        </button>
-                        <button
-                            class="ml-4 inline-flex text-gray-700 bg-gray-200 py-2 px-4 focus:outline-none hover:bg-gray-300 rounded-lg text-lg">
-                            More Features
-                        </button>
+                        <a href="{{url('/#boarding-places')}}">
+                            <button
+                                class="inline-flex text-white bg-indigo-500  py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded-lg text-lg">
+                                View Boardings
+                            </button>
+                        </a>
+                        <a href="{{url('/#our-features')}}">
+                            <button
+                                class="ml-4 inline-flex text-gray-700 bg-gray-200 py-2 px-4 focus:outline-none hover:bg-gray-300 rounded-lg text-lg">
+                                More Features
+                            </button>
+                        </a>
                     </div>
                 </div>
                 <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
@@ -113,15 +117,15 @@
         <!--End of Featured Section-->
 
         <!--Boarding Section-->
-        <section class="text-gray-700 body-font border-t border-gray-200 py-12">
-        <div class="container mx-auto" id="boarding-places">
+        <section class="text-gray-700 body-font border-t border-gray-200 py-12"  id="boarding-places">
+        <div class="container mx-auto">
             <livewire:boarding-places/>
         </div>
         </section>
 
 
         <!--Our Key Features Section-->
-        <section class="text-gray-900 body-font border-t border-gray-200">
+        <section class="text-gray-900 body-font border-t border-gray-200" id="our-features">
             <div class="mx-auto px-5 py-24">
                 <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 :text-white lg:text-5xl">
                     Our Key Features
