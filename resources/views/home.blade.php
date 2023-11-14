@@ -7,24 +7,28 @@
                     <img class="h-100 w-full object-cover lg:w-6/5"
                          src="{{asset('asserts/images/home/Bz.png')}}"/>
                 </div>
-
             </div>
         </section>
 
         <!--Featured Section-->
-        <section class="text-gray-700 body-font animate__animated animate__fadeIn">
+        <section class="text-gray-700 body-font">
             <div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
                 <div
-                    class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                    <h1 class="title-font sm:text-4xl text-3xl mb-2 font-semibold text-gray-800 italic">Welcome to BOARDINGZONE!</h1>
-                        </h2>
-                        <h2 class="title-font sm:text-2xl text-3xl mb-12 font-light text-gray-700 italic">
+                    class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
+                    data-aos="slide-right" data-aos-offset="100" data-aos-duration="1000">
+                    <h1 class="title-font sm:text-4xl text-3xl mb-2 font-semibold text-gray-800 italic">Welcome to
+                        BOARDINGZONE!</h1>
+                    </h2>
+                    <h2 class="title-font sm:text-2xl text-3xl mb-12 font-light text-gray-700 italic">
                         Your Gateway to Ideal Boarding...
-                        </h2>
-                    <h3 class="title-font sm:text-2xl text-xl mb-4 font-medium text-gray-700">🏡 Find Your Perfect Boarding Home
+                    </h2>
+                    <h3 class="title-font sm:text-2xl text-xl mb-4 font-medium text-gray-700">🏡 Find Your Perfect
+                        Boarding Home
                     </h3>
-                    <p class="mb-8 leading-relaxed">Discover a smooth and personalized experience in locating the best boarding facility for your requirements.
-                        Our platform links you with a wide variety of boarding alternatives, ensuring that you feel at ease wherever you travel.</p>
+                    <p class="mb-8 leading-relaxed">Discover a smooth and personalized experience in locating the best
+                        boarding facility for your requirements.
+                        Our platform links you with a wide variety of boarding alternatives, ensuring that you feel at
+                        ease wherever you travel.</p>
                     <div class="flex justify-center">
                         <a href="{{url('/#boarding-places')}}">
                             <button
@@ -40,141 +44,182 @@
                         </a>
                     </div>
                 </div>
-                <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+                    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6" data-aos="slide-left" data-aos-offset="150"
+                         data-aos-duration="1000">
                     <img class="object-cover object-center rounded w-full h-full" alt="hero"
                          src="{{asset('asserts/images/home/IMG 4.jpg')}}">
                 </div>
             </div>
-            <section class="text-gray-700 body-font border-t border-gray-200 py-12">
-            <div class="container px-5 mx-auto flex flex-wrap">
-                <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
-                    <img alt="feature" class="object-cover object-center h-full w-full"
-                         src="{{asset('asserts/images/home/room.jpg')}}">
-                </div>
-                <div class="flex flex-col flex-wrap lg:py-6 mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
-                    <div class="flex flex-col mb-12 lg:items-start items-center">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">🌴 Discover Paradise:</h2>
-                            <p class="leading-relaxed text-base">Explore our chosen collection of boarding spots in the midst of Sri Lanka's breathtaking sceneries.
-                                We've got your perfect stay covered, from lush tea estates to gorgeous beaches.
-                            </p>
-                            <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                     stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
-                        </div>
+            <section class="text-gray-700 body-font border-t border-gray-200 py-12" data-aos="fade"
+                     data-aos-offset="150" data-aos-duration="1000">
+                <div class="container px-5 mx-auto flex flex-wrap">
+                    <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
+                        <img alt="feature" class="object-cover object-center h-full w-full"
+                             src="{{asset('asserts/images/home/room.jpg')}}">
                     </div>
-                    <div class="flex flex-col mb-12 lg:items-start items-center">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">🏡 Diverse Accommodations:</h2>
-                            <p class="leading-relaxed text-base">Whether you're looking for the peace and quiet of a tiny accommodation,
-                                the comforts of a seaside house, or the cultural appeal of a historic residence,
-                                Boardingzone has a variety of accommodations to fit any traveler's preferences.
-                            </p>
-                            <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                     stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                    <div class="flex flex-col flex-wrap lg:py-6 mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
+                        <div class="flex flex-col mb-12 lg:items-start items-center" data-aos="slide-left" data-aos-easing="ease-in-out"
+                             data-aos-offset="100" data-aos-duration="1000">
+                            <div class="flex-grow">
+                                <h2 class="text-gray-900 text-lg title-font font-medium mb-3">🌴 Discover Paradise:</h2>
+                                <p class="leading-relaxed text-base">Explore our chosen collection of boarding spots in
+                                    the midst of Sri Lanka's breathtaking sceneries.
+                                    We've got your perfect stay covered, from lush tea estates to gorgeous beaches.
+                                </p>
+                                <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                         stroke-linejoin="round"
+                                         stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex flex-col mb-12 lg:items-start items-center">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">🌐 Book with Confidence: </h2>
-                            <p class="leading-relaxed text-base">Feel confident as you capture your share of our country calmness.
-                                You'll have more time to look forward to the joys of the next journey with our simple reservation procedure and secure payment options.
-                            </p>
-                            <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                     stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                        <div class="flex flex-col mb-12 lg:items-start items-center" data-aos="slide-left" data-aos-easing="ease-in-out"
+                             data-aos-offset="100" data-aos-duration="1000">
+                            <div class="flex-grow">
+                                <h2 class="text-gray-900 text-lg title-font font-medium mb-3">🏡 Diverse
+                                    Accommodations:</h2>
+                                <p class="leading-relaxed text-base">Whether you're looking for the peace and quiet of a
+                                    tiny accommodation,
+                                    the comforts of a seaside house, or the cultural appeal of a historic residence,
+                                    Boardingzone has a variety of accommodations to fit any traveler's preferences.
+                                </p>
+                                <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                         stroke-linejoin="round"
+                                         stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex flex-col mb-12 lg:items-start items-center">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">🌳 Eco-Friendly Retreats:</h2>
-                            <p class="leading-relaxed text-base">Find environmentally aware accommodations that have a positive impact on the surrounding area. Choose eco-friendly accommodation where each reservation helps to protect Sri Lanka's beautiful landscape for future generations.
+                        <div class="flex flex-col mb-12 lg:items-start items-center" data-aos="slide-left" data-aos-easing="ease-in-out"
+                             data-aos-offset="150" data-aos-duration="1000">
+                            <div class="flex-grow">
+                                <h2 class="text-gray-900 text-lg title-font font-medium mb-3">🌐 Book with
+                                    Confidence: </h2>
+                                <p class="leading-relaxed text-base">Feel confident as you capture your share of our
+                                    country calmness.
+                                    You'll have more time to look forward to the joys of the next journey with our
+                                    simple reservation procedure and secure payment options.
+                                </p>
+                                <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                         stroke-linejoin="round"
+                                         stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex flex-col mb-12 lg:items-start items-center" data-aos="slide-left" data-aos-easing="ease-in-out"
+                             data-aos-offset="150" data-aos-duration="1000">
+                            <div class="flex-grow">
+                                <h2 class="text-gray-900 text-lg title-font font-medium mb-3">🌳 Eco-Friendly
+                                    Retreats:</h2>
+                                <p class="leading-relaxed text-base">Find environmentally aware accommodations that have
+                                    a positive impact on the surrounding area. Choose eco-friendly accommodation where
+                                    each reservation helps to protect Sri Lanka's beautiful landscape for future
+                                    generations.
 
-                            </p>
-                            <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                     stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                                </p>
+                                <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                         stroke-linejoin="round"
+                                         stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
-
                 </div>
-            </div>
             </section>
         </section>
         <!--End of Featured Section-->
 
         <!--Boarding Section-->
-        <section class="text-gray-700 body-font border-t border-gray-200 py-12"  id="boarding-places">
-        <div class="container mx-auto">
-            <livewire:boarding-places/>
-        </div>
+        <section class="text-gray-700 body-font border-t border-gray-200 py-12 boarding-section" data-aos="fade"
+                 data-aos-offset="100" data-aos-duration="1000" id="boarding-places">
+            <div class="container mx-auto">
+                <livewire:boarding-places/>
+            </div>
         </section>
 
 
         <!--Our Key Features Section-->
-        <section class="text-gray-900 body-font border-t border-gray-200" id="our-features">
+        <section class="text-gray-900 body-font border-t border-gray-200" id="our-features" data-aos="fade" data-aos-easing="ease-in-out"
+                 data-aos-offset="150" data-aos-duration="1300">
             <div class="mx-auto px-5 py-24">
                 <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 :text-white lg:text-5xl">
                     Our Key Features
                 </h1>
-
                 <p class="mt-4 text-center text-gray-500 :text-gray-300">Take a look at some of our key features</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-24 p-12 text-blue-500">
-                    <div class="flex flex-col justify-center items-center">
+                    <div class="flex flex-col justify-center items-center" data-aos="fade-up" data-aos-easing="ease-in-out"
+                         data-aos-offset="150" data-aos-duration="1300" >
                         <i class="fa-solid fa-magnifying-glass fa-5x"></i>
-                        <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white mb-2">Bording Finder</h2>
-                        <p class="font-light text-gray-800 text-center align-middle">Boardingzone gives you access to a range of locations, including peaceful towns to busy metropolitan cores. Navigate our extensive database to find the ideal area that complements your tastes and way of life.
+                        <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white mb-2">Bording
+                            Finder</h2>
+                        <p class="font-light text-gray-800 text-center align-middle">Boardingzone gives you access to a
+                            range of locations, including peaceful towns to busy metropolitan cores. Navigate our
+                            extensive database to find the ideal area that complements your tastes and way of life.
                         </p>
-
                     </div>
-                    <div class="flex flex-col justify-center items-center">
+                    <div class="flex flex-col justify-center items-center" data-aos="fade-up" data-aos-easing="ease-in-out"
+                         data-aos-offset="150" data-aos-duration="1300">
                         <i class="fa-solid fa-handshake-angle fa-5x"></i>
-                        <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white mb-2">Academic Support Service</h2>
-                        <p class="font-light text-gray-800 text-center align-middle">Our user-friendly design makes it simple to choose your optimal boarding area.
-                            Boardingzone makes it easy to find your future home, whether you're a student, professional, or somewhere in between.
+                        <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white mb-2">Academic
+                            Support Service</h2>
+                        <p class="font-light text-gray-800 text-center align-middle">Our user-friendly design makes it
+                            simple to choose your optimal boarding area.
+                            Boardingzone makes it easy to find your future home, whether you're a student, professional,
+                            or somewhere in between.
                         </p>
                     </div>
-                    <div class="flex flex-col justify-center items-center">
+                    <div class="flex flex-col justify-center items-center" data-aos="fade-up" data-aos-easing="ease-in-out"
+                         data-aos-offset="150" data-aos-duration="1300">
                         <i class="fa-solid fa-solid fa-shield-halved fa-5x"></i>
-                        <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white mb-2">Security Service</h2>
+                        <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white mb-2">Security
+                            Service</h2>
                         <p class="font-light text-gray-800 text-center align-middle">
                             Boardingzone lists the most secure boarding facilities and
                             we guarantee the security of your information.
-                            Implementing strong encryption techniques, upgrading software on a regular basis are critical tasks we follow.
+                            Implementing strong encryption techniques, upgrading software on a regular basis are
+                            critical tasks we follow.
                         </p>
                     </div>
-                    <div class="flex flex-col justify-center items-center">
+                    <div class="flex flex-col justify-center items-center" data-aos="fade-up" data-aos-easing="ease-in-out"
+                         data-aos-offset="150" data-aos-duration="1300">
                         <i class="fa-solid fa-bullhorn fa-5x"></i>
-                        <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white mb-2">Boarding Adverticesment</h2>
+                        <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white mb-2">Boarding
+                            Adverticesment</h2>
                         <p class="font-light text-gray-800 text-center align-middle">
-                            You may post and browse boarding advertisements with confidence, knowing that our strong security procedures focus on the safety and privacy of all users.
+                            You may post and browse boarding advertisements with confidence, knowing that our strong
+                            security procedures focus on the safety and privacy of all users.
                         </p>
                     </div>
-                    <div class="flex flex-col justify-center items-center">
+                    <div class="flex flex-col justify-center items-center" data-aos="fade-up" data-aos-easing="ease-in-out"
+                         data-aos-offset="150" data-aos-duration="1300">
                         <i class="fa-solid fa-dumbbell fa-5x"></i>
-                        <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white mb-2">Recreational & Fitness Services</h2>
-                        <p class="font-light text-gray-800 text-center align-middle">Bordingzone provides residents entertainment and exercise facilities.
-                            Residents can locate fitness centers, gyms, and other entertainment options near their boarding house.
+                        <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white mb-2">Recreational &
+                            Fitness Services</h2>
+                        <p class="font-light text-gray-800 text-center align-middle">Bordingzone provides residents
+                            entertainment and exercise facilities.
+                            Residents can locate fitness centers, gyms, and other entertainment options near their
+                            boarding house.
                         </p>
                     </div>
-                    <div class="flex flex-col justify-center items-center">
+                    <div class="flex flex-col justify-center items-center" data-aos="fade-up" data-aos-easing="ease-in-out"
+                         data-aos-offset="150" data-aos-duration="1300">
                         <i class="fa-solid fa-plate-utensils fa-5x"></i>
-                        <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white mb-2">Food Services</h2>
-                        <p class="font-light text-gray-800 text-center align-middle">We're more than simply a boarding service, we enrich your experience by connecting you with hotels that provide outstanding food.
+                        <h2 class="mt-7 text-xl font-semibold capitalize text-gray-600 :text-white mb-2">Food
+                            Services</h2>
+                        <p class="font-light text-gray-800 text-center align-middle">We're more than simply a boarding
+                            service, we enrich your experience by connecting you with hotels that provide outstanding
+                            food.
                             experience comfort in a single spot.
                         </p>
                     </div>
@@ -184,113 +229,19 @@
         </section>
         <!--End of Our Key Features Section-->
 
-        <!--<section class="text-gray-700 body-font border-t border-gray-200">
-            <div class="container px-5 py-24 mx-auto">
-                <div class="flex flex-col text-center w-full mb-20">
-                    <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">ROOF PARTY
-                        POLAROID</h2>
-                    <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Master Cleanse Reliac
-                        Heirloom</h1>
-                </div>
-                <div class="flex flex-wrap -m-4">
-                    <div class="p-4 md:w-1/3">
-                        <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-                            <div class="flex items-center mb-3">
-                                <div
-                                    class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                         stroke-linejoin="round"
-                                         stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                                    </svg>
-                                </div>
-                                <h2 class="text-gray-900 text-lg title-font font-medium">Shooting Stars</h2>
-                            </div>
-                            <div class="flex-grow">
-                                <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar
-                                    toast
-                                    vegan taxidermy. Gastropub indxgo juice poutine.</p>
-                                <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                         stroke-linejoin="round"
-                                         stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-4 md:w-1/3">
-                        <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-                            <div class="flex items-center mb-3">
-                                <div
-                                    class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                         stroke-linejoin="round"
-                                         stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                                        <circle cx="12" cy="7" r="4"></circle>
-                                    </svg>
-                                </div>
-                                <h2 class="text-gray-900 text-lg title-font font-medium">The Catalyzer</h2>
-                            </div>
-                            <div class="flex-grow">
-                                <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar
-                                    toast
-                                    vegan taxidermy. Gastropub indxgo juice poutine.</p>
-                                <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                         stroke-linejoin="round"
-                                         stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-4 md:w-1/3">
-                        <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-                            <div class="flex items-center mb-3">
-                                <div
-                                    class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                         stroke-linejoin="round"
-                                         stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                                        <circle cx="6" cy="6" r="3"></circle>
-                                        <circle cx="6" cy="18" r="3"></circle>
-                                        <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-                                    </svg>
-                                </div>
-                                <h2 class="text-gray-900 text-lg title-font font-medium">Neptune</h2>
-                            </div>
-                            <div class="flex-grow">
-                                <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar
-                                    toast
-                                    vegan taxidermy. Gastropub indxgo juice poutine.</p>
-                                <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                         stroke-linejoin="round"
-                                         stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-        <section class="text-gray-700 body-font border-t border-gray-200">
+        <section class="text-gray-700 body-font border-t border-gray-200" data-aos="fade" data-aos-easing="ease-in-out"
+                 data-aos-offset="150" data-aos-duration="1300">
             <div class="container px-5 py-24 mx-auto">
                 <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
                     <h1 class="sm:text-4xl text-3xl title-font mb-2 text-gray-900 font-bold">Our Team</h1>
                     <p class="lg:w-1/2 w-full leading-relaxed text-base">
-                        Meet our vibrant team. Each team member brings a distinct set of abilities to the table and is made up of skilled people from different backgrounds.
+                        Meet our vibrant team. Each team member brings a distinct set of abilities to the table and is
+                        made up of skilled people from different backgrounds.
                     </p>
                 </div>
                 <div class="flex flex-wrap -m-2">
-                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full" ata-aos="fade" data-aos-easing="ease-in-out"
+                 data-aos-offset="150" data-aos-duration="1300">
                         <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
                             <img alt="team"
                                  class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
@@ -301,7 +252,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full" ata-aos="fade" data-aos-easing="ease-in-out"
+                 data-aos-offset="150" data-aos-duration="1300">
                         <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
                             <img alt="team"
                                  class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
@@ -312,7 +264,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full" ata-aos="fade" data-aos-easing="ease-in-out"
+                 data-aos-offset="150" data-aos-duration="1300">
                         <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
                             <img alt="team"
                                  class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
@@ -323,7 +276,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full" ata-aos="fade" data-aos-easing="ease-in-out"
+                 data-aos-offset="150" data-aos-duration="1300">
                         <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
                             <img alt="team"
                                  class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
@@ -334,7 +288,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full" ata-aos="fade" data-aos-easing="ease-in-out"
+                 data-aos-offset="150" data-aos-duration="1300">
                         <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
                             <img alt="team"
                                  class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
@@ -346,7 +301,8 @@
                         </div>
                     </div>
 
-                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full" ata-aos="fade" data-aos-easing="ease-in-out"
+                 data-aos-offset="150" data-aos-duration="1300">
                         <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
                             <img alt="team"
                                  class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
@@ -357,7 +313,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full" ata-aos="fade" data-aos-easing="ease-in-out"
+                 data-aos-offset="150" data-aos-duration="1300">
                         <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
                             <img alt="team"
                                  class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
@@ -372,7 +329,8 @@
             </div>
         </section>
 
-        <section class="text-gray-700 body-font border-t border-gray-200">
+        <section class="text-gray-700 body-font border-t border-gray-200" ata-aos="slide-up" data-aos-easing="ease-in-out"
+                 data-aos-offset="150" data-aos-duration="1300">
             <div class="container px-5 py-24 mx-auto">
                 <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -381,8 +339,10 @@
                         <path
                             d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
                     </svg>
-                    <p class="leading-relaxed text-lg">"At IslandNest Sri Lanka, our mission is to create a diverse collection of accommodations that represent the spirit of our hospitality and culture.
-                        We are committed to giving people more than just a place to stay; we aim to link them with vibrant food suppliers and fitness services suppliers."
+                    <p class="leading-relaxed text-lg">"At IslandNest Sri Lanka, our mission is to create a diverse
+                        collection of accommodations that represent the spirit of our hospitality and culture.
+                        We are committed to giving people more than just a place to stay; we aim to link them with
+                        vibrant food suppliers and fitness services suppliers."
                     </p>
                     <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"></span>
                     <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">GROUP 07</h2>
