@@ -11,6 +11,8 @@ use Livewire\WithPagination;
 
 class BoardingPlaces extends Component
 {
+    public $search;
+
     use WithPagination;
 
     public function reserve($boarding_place_id)
@@ -37,7 +39,7 @@ class BoardingPlaces extends Component
 
     public function render()
     {
-        $boarding_places = BoardingPlace::where('publish_status', 'Approved')->paginate(4);
+        $boarding_places = BoardingPlace::where('publish_status', 'Approved')->where('name', 'LIKE', '%' . $this->search . '%' ?? '')->paginate(4);
         return view('livewire.boarding-places', compact('boarding_places'));
     }
 
